@@ -1,0 +1,49 @@
+# Spelling.yml
+extends: spelling
+
+message: "Did you really mean '%s'?"
+filters:
+  - '\b[a-zA-Z0-9_]*_[a-zA-Z0-9_]*\b'
+  - "[cC]onfig"
+  - "[iI]nterprocessor"
+  - "[tT]oolchain"
+  - BELLBOARD
+  - BELLBOARDs
+  - bitflip
+  - bootable
+  - Coresight
+  - Macrocell
+  - DK's
+  - VEVIFs
+  - Vendor ID
+  - backend
+  - cpuapp
+  - cpurad
+  - cpunet
+  - devicetree
+  - event_manager
+  - Kconfig
+  - MCUboot
+  - MCUmgr
+  - multicore
+  - multiprotocol
+  - namespace
+  - Nordic
+  - nRF
+  - nRF Util
+  - nRF54H20
+  - nrfjprog
+  - nrfutil
+  - phandle
+  - precompiled
+  - requestors
+  - sysbuild
+  - udev
+  - unclonable
+  - updateability
+  - Util
+  - VPRs
+  - LFCLK
+  - CPUs
+  - HSFLLs
+  - J-Link

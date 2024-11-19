@@ -1,0 +1,66 @@
+extends: capitalization
+message: "'%s' should use sentence-style capitalization."
+link: https://docs.microsoft.com/en-us/style-guide/capitalization
+level: suggestion
+scope: heading
+match: $sentence
+indicators:
+  - ':'
+exceptions:
+  - Azure
+  - CLI
+  - Code
+  - Cosmos
+  - Docker
+  - Emmet
+  - Kubernetes
+  - Linux
+  - macOS
+  - Marketplace
+  - MongoDB
+  - REPL
+  - Studio
+  - TypeScript
+  - URLs
+  - Visual
+  - VS
+  - Windows
+  - System Trace Macrocell
+  - Fast Lightweight Processor (FLPR)
+  - System Controller
+  - Secure Domain
+  - LCS EMPTY
+  - Secure Domain Firmware
+  - Management Group ID
+  - Nordic-controlled
+  - Peripheral Processor (PPR)
+  - Embedded Trace Router (ETR)
+  # Added exceptions for acronyms and capitalized brand names
+  - API
+  - BLE
+  - CPU
+  - CPUs
+  - DFU
+  - FLPR
+  - GPIO
+  - HTTPS
+  - HTTP
+  - JSON
+  - MCUboot
+  - MCUmgr
+  - NFC
+  - nRF
+  - nRF54H20
+  - OSS
+  - RAM
+  - ROM
+  - SDK
+  - SoC
+  - UART
+  - USB
+  - UUID
+  - VS Code
+  - XML
+  - YAML
+  - SUIT
+  - SMP

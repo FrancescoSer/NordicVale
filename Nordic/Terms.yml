@@ -34,7 +34,7 @@ swap:
   eb: EB
   gb: GB
   gbps: Gbps
-  kb: KB
+  kb: kB
   keypress: keystroke
   mb: MB
   pb: PB
