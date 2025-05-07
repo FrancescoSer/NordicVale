@@ -36,18 +36,19 @@ exceptions:
   - DPI
   - DTS
   - DVFS
+  - EK
   - ESB
+  - ETR
   - EXMIF
   - FAQ
   - FLPR
   - GCC
   - GDB
+  - GDFS
   - GET
   - GND
   - GPIO
-  - GPU
   - GRTC
-  - GTK
   - GUI
   - HCI
   - HEX
@@ -59,25 +60,24 @@ exceptions:
   - I2C
   - I2S
   - I2U
-  - I2U2
-  - I2U3
   - ICMsg
   - ICBMsg
   - ID
   - IDE
   - IEEE
   - IETF
-  - IIC
-  - IIO
-  - IIR
+  - IPC
+  - KMS
+  - MAC
+  - MRAM
   - NCS
-  - EK
   - PCB
+  - PPR
   - RAM
-  - SUIT
   - SDFW
-  - UART
-  - STM
-  - ETR
   - SDK
+  - SMP
+  - STM
+  - SUIT
+  - UART
   - YAML

@@ -4,46 +4,81 @@ extends: spelling
 message: "Did you really mean '%s'?"
 filters:
   - '\b[a-zA-Z0-9_]*_[a-zA-Z0-9_]*\b'
+  - "[bB]itflip"
   - "[cC]onfig"
   - "[iI]nterprocessor"
   - "[tT]oolchain"
+  - "[uU]pdateable"
+  - APIs
   - BELLBOARD
   - BELLBOARDs
-  - bitflip
-  - bootable
+  - Bluetooth
+  - Bootable
+  - CDDL
+  - CMake
+  - Coex
   - Coresight
-  - Macrocell
+  - Crypto
   - DK's
-  - VEVIFs
-  - Vendor ID
-  - backend
-  - cpuapp
-  - cpurad
-  - cpunet
-  - devicetree
-  - event_manager
+  - DKs
+  - Devicetree
+  - FLPR
+  - HSFLLs
+  - ICMsg
+  - ICBMsg
+  - IETF
+  - IRQs
+  - ISRs
+  - J-Link
+  - KHz
   - Kconfig
+  - LFCLK
+  - MCU
   - MCUboot
   - MCUmgr
+  - Macrocell
+  - PHANDLE
+  - PPR
+  - Repurposing
+  - Semiconductor
+  - UUIDs
+  - Util
+  - VEVIFs
+  - VPRs
+  - Vendor ID
+  - backend
+  - bellboard
+  - bootable
+  - cpuapp
+  - cpunet
+  - cpurad
+  - devicetree
+  - event_manager
+  - extmem
+  - idx
+  - multicast
   - multicore
+  - multithreaded
   - multiprotocol
   - namespace
-  - Nordic
   - nRF
   - nRF Util
   - nRF54H20
+  - Nordic
+  - PHANDLE
+  - UICRs
+  - UUIDs
+  - bootloader
+  - recalibrates
+  - requestors
+  - sysbuild
+  - unaccessible
+  - unclonable
+  - unicast
+  - uninitialize
+  - updateability
+  - udev
   - nrfjprog
   - nrfutil
   - phandle
   - precompiled
-  - requestors
-  - sysbuild
-  - udev
-  - unclonable
-  - updateability
-  - Util
-  - VPRs
-  - LFCLK
-  - CPUs
-  - HSFLLs
-  - J-Link
