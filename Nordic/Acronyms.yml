@@ -12,9 +12,9 @@ exceptions:
   - ADAC
   - AES
   - AMP
-  - APB
   - API
   - APIs
+  - APB
   - ARM
   - ASP
   - BICR
@@ -39,6 +39,7 @@ exceptions:
   - DTS
   - DVFS
   - ESB
+  - EXMIF
   - FAQ
   - FLPR
   - GCC
@@ -60,6 +61,7 @@ exceptions:
   - HTTP
   - HTTPS
   - ICMsg
+  - ICBMsg
   - ID
   - IDE
   - IEEE
@@ -70,7 +72,6 @@ exceptions:
   - JAR
   - JSON
   - JSX
-  - kB
   - LCS
   - LESS
   - LFCLK
@@ -78,6 +79,8 @@ exceptions:
   - LLDB
   - MAC
   - MCU
+  - MIPI
+  - MPC
   - MPI
   - MRAM
   - NCS
@@ -97,6 +100,7 @@ exceptions:
   - POST
   - PPR
   - PRO
+  - PSA
   - PUF
   - RAM
   - RAW
@@ -104,6 +108,7 @@ exceptions:
   - RESET
   - RFC
   - RISC
+  - RMA
   - RoT
   - ROM
   - RSA
@@ -127,9 +132,12 @@ exceptions:
   - SSL
   - SUIT
   - SVG
+  - SVD
   - SWD
+  - SWJ
   - SYSCTRL
   - TCP
+  - TTP
   - UART
   - UARTE
   - UARTE120
@@ -138,10 +146,12 @@ exceptions:
   - URIs
   - URL
   - USB
+  - USBHS
   - UTF
   - UUID
   - VBUS
   - VDD
+  - VDDH
   - VEVIF
   - VID
   - VPR
@@ -151,15 +161,3 @@ exceptions:
   - XSS
   - YAML
   - ZIP
-  - EXMIF
-  - ICMsg
-  - ICBMsg
-  - MIPI
-  - MPC
-  - PSA
-  - RMA
-  - SVD
-  - SWJ
-  - TTP
-  - USBHS
-  - VDDH
