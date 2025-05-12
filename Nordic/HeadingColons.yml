@@ -5,4 +5,8 @@ nonword: true
 level: error
 scope: heading
 tokens:
-  - ':\s[a-z]'
+  - ':\s(?!nRF)[a-z]'
+
+## nRF is embedded in the regex to avoid false positives.
+## It should be included in a separate exception rule list.
+## Original regex:   - ':\s[a-z]'
