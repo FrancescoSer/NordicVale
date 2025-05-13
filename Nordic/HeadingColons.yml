@@ -5,8 +5,7 @@ nonword: true
 level: error
 scope: heading
 tokens:
-  - ':\s(?!(?:nRF|sdk-[a-z0-9_-]+))[a-z]'
-
+  - ':\s(?!(?:nRF|fwupd|sdk-[a-z0-9_-]+))[a-z]'
 
 # Skips when the text after the colon is “nRF” or any “sdk-...” repository name
 
