@@ -8,5 +8,5 @@ tokens:
   - abortion
   - and so on
   - app(?:lication)?s? (?:developer|program)
-  - app(?:lication)? file
+  - (?i)app(?:lication)?\sfile(?!-)
   - contiguous selection
