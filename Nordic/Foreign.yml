@@ -1,5 +1,6 @@
 extends: substitution
 message: "Use '%s' instead of '%s'."
+## missingdoc
 link: https://docs.microsoft.com/en-us/style-guide/word-choice/use-us-spelling-avoid-non-english-words
 # To match “E.g.” and “e.g.”
 ignorecase: true

@@ -1,6 +1,6 @@
 extends: existence
 message: "'%s' should have one space."
-link: https://docs.microsoft.com/en-us/style-guide/punctuation/periods
+link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/punctuation/periods.md
 level: error
 nonword: true
 tokens:

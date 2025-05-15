@@ -1,6 +1,6 @@
 extends: existence
 message: "Remove the spaces around '%s'."
-link: https://docs.microsoft.com/en-us/style-guide/punctuation/dashes-hyphens/emes
+link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/punctuation/dashes-and-hyphens.md
 ignorecase: true
 nonword: true
 level: error

@@ -1,6 +1,6 @@
 extends: existence
 message: "Use 'to' instead of a dash in '%s'."
-link: https://docs.microsoft.com/en-us/style-guide/numbers
+link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/numbers.md
 nonword: true
 level: error
 action:
