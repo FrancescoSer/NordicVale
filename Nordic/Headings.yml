@@ -23,6 +23,7 @@ exceptions:
   - Nordic-controlled
   - nRF54H20
   - Peripheral Processor (PPR)
+  - nRF Util
   - REPL
   - Secure Domain
   - Secure Domain Firmware
@@ -44,6 +45,7 @@ exceptions:
   - CLI
   - DFU
   - DK
+  - Dongle
   - FLPR
   - GPIO
   - HTTPS
@@ -60,6 +62,9 @@ exceptions:
   - ROM
   - SDK
   - SoC
+  - Thingy:91
+  - Thingy:52
+  - Thingy:53
   - UART
   - USB
   - UUID

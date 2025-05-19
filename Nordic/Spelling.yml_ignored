@@ -80,5 +80,7 @@ filters:
   - udev
   - nrfjprog
   - nrfutil
+  - nrfdl
+  - nRF Util
   - phandle
   - precompiled
