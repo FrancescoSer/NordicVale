@@ -17,6 +17,10 @@ swap:
   "audio(?:-| )book": audiobook
   "back(?:-| )light": backlight
   "chat ?bots?": chatbot(s)
+  #kB not kb, not in a link
+  "(?<![\\w/\\.-])kb(?![\\w\\.-])": kB
+  #J-Link not jlink, not in a command syntax
+  "\b[Jj]link\b": J-Link
   adaptor: adapter
   administrate: administer
   afterwards: afterward
@@ -34,8 +38,6 @@ swap:
   eb: EB
   gb: GB
   gbps: Gbps
-  Jlink: J-Link
-  kb: kB
   keypress: keystroke
   mb: MB
   pb: PB
