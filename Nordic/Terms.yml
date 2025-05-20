@@ -34,9 +34,11 @@ swap:
   eb: EB
   gb: GB
   gbps: Gbps
+  Jlink: J-Link
   kb: kB
   keypress: keystroke
   mb: MB
   pb: PB
   tb: TB
+  time-out: timeout
   zb: ZB
