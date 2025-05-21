@@ -5,4 +5,5 @@ level: error
 ## missingdoc
 link: https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/s/s-es
 raw:
-  - '\(s\)|\(es\)'
+  - '\b\w+\(s\)\b'
+  - '\b\w+\(es\)\b'
