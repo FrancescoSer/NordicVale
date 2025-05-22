@@ -1,5 +1,5 @@
 extends: substitution
-message: "Use '%s' instead of '%s'."
+message: "Use 'might' (possibility) or 'can' (ability) instead of '%s', depending on the context."
 link: to_be_added
 level: error
 ignorecase: true
@@ -7,4 +7,3 @@ action:
   name: replace
 swap:
   may: might
-
