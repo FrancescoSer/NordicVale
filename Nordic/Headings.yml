@@ -1,77 +1,142 @@
 extends: capitalization
+# Source: content-structure/headings.md, "Use sentence-style capitalization for headings"
+# Source: product-names.md, "Product names in headings follow the same capitalization as in body text."
+# Vale ignores inline code in headings (`x` in Markdown, ``x`` in rst) and the
+# rst title adornment. With $sentence, a few capitalized words in a long
+# heading can stay under the alert threshold.
+# Deferred conflict C5: the ':' indicator allows, but does not require, a
+# capital letter after a colon.
 message: "'%s' should use sentence-style capitalization."
-link: https://docs.microsoft.com/en-us/style-guide/capitalization
+link: https://nordicplayground.github.io/techdocs-style-guide/content-structure/headings/#use-sentence-style-capitalization-for-headings
 level: suggestion
 scope: heading
 match: $sentence
 indicators:
   - ':'
 exceptions:
-  - Azure
-  - Code
-  - Cosmos
-  - Docker
-  - Embedded Trace Router (ETR)
-  - Emmet
-  - Fast Lightweight Processor (FLPR)
-  - Kubernetes
-  - LCS EMPTY
-  - Linux
-  - Management Group ID
-  - Marketplace
-  - MongoDB
+  # Nordic company, product, and app names (product-names.md, trademarks.md).
+  - Nordic Semiconductor
+  - Nordic
   - Nordic-controlled
-  - nRF54H20
-  - Peripheral Processor (PPR)
+  - Nordic DevAcademy
+  - DevAcademy
+  - nRF Connect SDK Add-ons
+  - nRF Connect SDK Bare Metal
+  - nRF Connect for Desktop
+  - nRF Connect for VS Code
+  - nRF Connect
+  - nRF Cloud Location Services
+  - nRF Cloud Security Services
+  - nRF Cloud
   - nRF Util
-  - REPL
-  - Secure Domain
+  - nPM PowerUP
+  - 'Thingy(?::\d+X?)?'
+  - '(?:nRF|nPM)\w* (?:Series|Family)'
+  - Series
+  - Family
+  - SoftDevice
+  - Dongle
+  - Kconfig
+  - Board Configurator
+  - Cellular Monitor
+  - Direct Test Mode
+  - Power Profiler
+  - Programmer
+  - Quick Start
+  - RSSI Viewer
+  - Serial Terminal
+  - Toolchain Manager
+  - Infocenter
+  - InfoPage
+  - Master Control Panel
+  - Master Emulator
+  # nRF54H20 architecture names.
+  - Embedded Trace Router
+  - Fast Lightweight Processor
+  - Peripheral Processor
+  - Management Group ID
   - Secure Domain Firmware
-  - Studio
+  - Secure Domain
   - System Controller
   - System Trace Macrocell
+  # Hardware and software terms that the glossary capitalizes.
+  - Attribute Table
+  - GATT Server Attribute Table
+  - Just Works
+  - Angle of Arrival
+  - Packet Buffer
+  - Memory Manager
+  - Context Manager
+  - '(?:NFC )?Type 2 Tag'
+  - Constant Current
+  - Constant Voltage
+  - Fast Charge
+  - Trickle Charge
+  - (?:High|Low|Normal) Voltage
+  - Overcurrent
+  - Overvoltage
+  - Force OFF
+  - Internet
+  # Bluetooth LE roles (glossary.md, "advertiser").
+  - Advertiser
+  - Broadcaster
+  - Central
+  - Peripheral
+  - Initiator
+  - Observer
+  - Scanner
+  # Third-party names and standards that appear in Nordic content.
+  - Bluetooth Low Energy
+  - Bluetooth LE
+  - Bluetooth Core
+  - Bluetooth Host
+  - Bluetooth Mesh
+  - Bluetooth
+  - Auracast
+  - Wi-Fi Alliance
+  - Wi-Fi
+  - Zephyr
+  - Matter
+  - Thread
+  - Zigbee
+  - CoAP
+  - Arm
+  - Cortex(?:-[AMR]\d+\w*)?
+  - TrustZone
+  - TF-M
+  - J-Link
+  - Mbed
+  - Python
   - TypeScript
-  - URLs
-  - VS
-  - Visual
-  - Windows
+  - Git
+  - GitHub
+  - Linux
   - macOS
-  # Added exceptions for acronyms and capitalized brand names
-  - API
-  - BICR
-  - BLE
-  - CPU
-  - CPUs
-  - CLI
-  - DFU
-  - DK
-  - Dongle
-  - FLPR
-  - GPIO
-  - HTTPS
-  - HTTP
-  - JSON
+  - Windows
+  - Visual Studio Code
+  - VS Code
+  # Mixed-case acronyms and tool names.
+  - nRF
+  - SoC
+  - SiP
+  - SoCs
   - MCUboot
   - MCUmgr
-  - NCS
-  - NFC
-  - nRF
-  - nRF54H20
-  - OSS
-  - RAM
-  - ROM
-  - SDK
-  - SoC
-  - Thingy:91
-  - Thingy:52
-  - Thingy:53
-  - UART
-  - USB
-  - UUID
-  - VS Code
-  - VSC
-  - XML
-  - YAML
-  - SUIT
-  - SMP
-  - KMS
+  - URLs
+  - REPL
+  # Languages.
+  - American English
+  - English
+  - Latin
+  # Key names (capitalization.md, "Input device controls").
+  - Alt
+  - Ctrl
+  - Shift
+  - Tab
+  - Enter
+  - Esc
+  - Return
+  # Acronyms and other all-caps words (API, GPIO, UART, DFU, LCS EMPTY).
+  # Skip an acronym followed by a capitalized word, or this entry hides
+  # longer names that start with an acronym, such as VS Code.
+  - '[A-Z][A-Z0-9]+s?(?! [A-Z][a-z])'

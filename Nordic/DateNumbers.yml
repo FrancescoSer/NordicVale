@@ -1,40 +1,14 @@
 extends: existence
-message: "Don't use ordinal numbers for dates."
-link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/numbers.md
+# Source: numbers.md, "Use a numeral to describe a date, not ordinal numbers such as October twenty-eighth."
+# and "Do not use ordinal numbers for dates. June 1 (not June 1st)"
+message: "Do not use ordinal numbers for dates. Use a numeral, such as 'June 1'."
+link: https://nordicplayground.github.io/techdocs-style-guide/numbers/#numbers-in-dates
 level: error
 nonword: true
-ignorecase: true
+# Case-sensitive on purpose: "may first" in "you may first configure" is not a date.
 raw:
-  - \b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)|May|Jun(?:e)|Jul(?:y)|Aug(?:ust)|Sep(?:tember)?|Oct(?:ober)|Nov(?:ember)?|Dec(?:ember)?)\b\s*
-tokens:
-  - first
-  - second
-  - third
-  - fourth
-  - fifth
-  - sixth
-  - seventh
-  - eighth
-  - ninth
-  - tenth
-  - eleventh
-  - twelfth
-  - thirteenth
-  - fourteenth
-  - fifteenth
-  - sixteenth
-  - seventeenth
-  - eighteenth
-  - nineteenth
-  - twentieth
-  - twenty-first
-  - twenty-second
-  - twenty-third
-  - twenty-fourth
-  - twenty-fifth
-  - twenty-sixth
-  - twenty-seventh
-  - twenty-eighth
-  - twenty-ninth
-  - thirtieth
-  - thirty-first
+  - '\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+'
+  - '(?:\d{1,2}(?:st|nd|rd|th)'
+  - '|(?:twenty-|thirty-)?(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth)'
+  - '|tenth|eleventh|twelfth|thirteenth|fourteenth|fifteenth|sixteenth|seventeenth'
+  - '|eighteenth|nineteenth|twentieth|thirtieth)\b'

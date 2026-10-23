@@ -1,37 +1,19 @@
 # Terms
 
-The app closes after an abortion event.
+Connect the adaptor to the board. Afterwards, restart it.
 
-Do this and/or that. There is an abundance of food.
+Install the anti-virus and antimalware tools. An anti-malware scan is fine.
 
-That's very exciting news!
+Read the appendixes. Use a chat bot or a chatbot. The service runs 24/7.
 
-I did that too. There was an adequate number of people.
+Use an URL here. Use a URL there. Open the file on the C: drive.
 
-Did you ensure that it works?
+The file is 512 kb or 4 KB. A 4 kB page is fine, see kb.example.com. The link speed is 10 Mb or 2 Gb, the file is 10 mb.
 
-This is a word -- i.e., something else.
+A 1 Gbps link and a 1 GBps disk and a 1 gbps cable.
 
-You can use the API to access the server.
+Connect the jlink probe. The J-Link probe is fine. Use a cell phone, a mobile phone, or a smart phone.
 
-I am going to go now.
+The request has a time-out. The connection can time out. The keypress is registered.
 
-Is that for me?
-
-I'm going to go now
-
-We like to party.
-
-This is my redemption.
-
-This book is mine.
-
-No one can stop us now.
-
-Let's do the time warp again.
-
-I, for one, welcome our new insect overlords.
-
-We can accomplish the task.
-
-I created this rule as a means to an end.
+Do not change `jlink` or `512 kb` in code.

@@ -1,8 +1,15 @@
 extends: existence
-message: "Remove '%s' if it's not important to the meaning of the statement."
-link: https://docs.microsoft.com/en-us/style-guide/word-choice/use-simple-words-concise-sentences
+# Source: writing-tips/index.md, "Omit unnecessary adverbs ... Unless they are important to the
+# meaning of a statement, leave them out." (also grammar/index.md, "Do not use unnecessary adverbs")
+# Source: writing-tips/bias-free-communication.md, "Do not use "simply," "just," or "easy"" and
+# "Treat readers as peers" ("Obviously, ...").
+# The word list itself comes from the MSWSG principle, not from the Nordic guide:
+# source: MSWSG https://learn.microsoft.com/en-us/style-guide/word-choice/use-simple-words-concise-sentences
+# Whether an adverb is necessary is a judgment call, so this is a suggestion.
+message: "Remove '%s' if it is not important to the meaning of the statement."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/#omit-unnecessary-adverbswords
 ignorecase: true
-level: warning
+level: suggestion
 action:
   name: remove
 tokens:
@@ -54,6 +61,7 @@ tokens:
   - doubtfully
   - dreamily
   - easily
+  - easy
   - effectively
   - elegantly
   - energetically
@@ -107,6 +115,7 @@ tokens:
   - joyously
   - jubilantly
   - judgmentally
+  - just(?!-in-time)
   - justly
   - keenly
   - kiddingly
@@ -141,6 +150,7 @@ tokens:
   - noisily
   - obediently
   - obnoxiously
+  - obviously
   - oddly
   - offensively
   - optimistically
@@ -199,6 +209,7 @@ tokens:
   - shrilly
   - shyly
   - silently
+  - simply
   - sleepily
   - slowly
   - smoothly

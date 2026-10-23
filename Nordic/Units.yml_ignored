@@ -1,6 +1,8 @@
 extends: existence
 message: "Don't spell out the number in '%s'."
-link: https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/units-of-measure-terms
+# Disabled: deferred conflict C8 (units-of-measurement.md:13-15 vs numbers.md:123).
+# Source: units-of-measurement.md, "Always use abbreviated units in all contexts."
+link: https://nordicplayground.github.io/techdocs-style-guide/units-of-measurement/#formatting-guidelines
 level: error
 raw:
   - '[a-zA-Z]+\s'

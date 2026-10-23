@@ -1,10 +1,14 @@
 extends: existence
-message: "'%s' should have one space."
-link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/punctuation/periods.md
+# Source: punctuation/periods.md, "Put one space, not two, after a period."
+message: "Use one space after the punctuation in '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/periods/
 level: error
 nonword: true
 tokens:
-  - '[a-z][.?!] {2,}[A-Z]'
-  - '[a-z][.?!][A-Z]'
-exceptions:
-  - '[uuid][.?!][NAMESPACE_DNS]'
+  # Two or more spaces after the end of a sentence.
+  - '[\w)"”’]+[.?!] {2,}[A-Z]\w*'
+  # No space between two sentences ("done.Then"). The word before the period
+  # must have two or more letters and the next word must continue in
+  # lowercase, which skips abbreviations (e.g.Foo) and identifiers such as
+  # uuid.NAMESPACE_DNS or Kconfig.CONFIG_X. Put code in code formatting.
+  - '\b[a-z]{2,}[.?!][A-Z][a-z]+'

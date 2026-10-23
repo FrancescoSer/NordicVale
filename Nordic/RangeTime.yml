@@ -1,13 +1,20 @@
 extends: existence
-message: "Use 'to' instead of a dash in '%s'."
-link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/numbers.md
+# Source: numbers.md, "Use to in a range of times." (10:00 AM to 2:00 PM)
+# Source: numbers.md, "When referencing ranges of dates, use to rather than a dash." (June 1 to June 10)
+# Source: numbers.md, "For ranges of time durations, use to instead of a dash." (2 hours to 3 hours)
+# Source: units-of-measurement.md, "Use "to" instead of a dash when expressing ranges with units."
+#   (Incorrect: from -40°C–100°C, -3–+20 dBm, 1.8–3.6 V); see also punctuation/dashes-and-hyphens.md.
+message: "Use 'to' instead of a dash in the range '%s', and repeat the unit for each value."
+link: https://nordicplayground.github.io/techdocs-style-guide/numbers/#ranges-of-numbers
 nonword: true
 level: error
-action:
-  name: edit
-  params:
-    - regex
-    - "[-–]"
-    - "to"
 tokens:
-  - '\b(?:AM|PM)\s?[-–]\s?.+(?:AM|PM)\b'
+  # Times: 10:00 AM–2:00 PM, 10:00–11:00 AM, 9 AM - 5 PM, 08:00–17:00.
+  - '\b\d{1,2}(?::\d{2})?\s?(?:AM|PM)\s?[-–]\s?\d{1,2}(?::\d{2})?(?:\s?(?:AM|PM)\b)?'
+  - '\b\d{1,2}:\d{2}\s?[-–]\s?\d{1,2}:\d{2}(?:\s?(?:AM|PM)\b)?'
+  # Not after "/": in "12/1/17 – 4:45 PM", 17 is part of a date (UI time stamp).
+  - '(?<![/.:\d])\b\d{1,2}\s?[-–]\s?\d{1,2}(?::\d{2})?\s?(?:AM|PM)\b'
+  # Dates: June 1–10, June 1 - June 10.
+  - '\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.? \d{1,2}\s?[-–]\s?(?:(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.? )?\d{1,2}\b'
+  # Numbers with units: 1.8–3.6 V, -40°C–100°C, -3–+20 dBm, 2–3 hours.
+  - '(?<![\w.])[-–+]?\d+(?:\.\d+)?\s?(?:°[CF]|[kMG]?Hz|dBm|dB|[mµu]?[VAW]|[mµun]s|[KkMG]B|[mk]?m|cm|kΩ|Ω|ppm|hours?|minutes?|seconds?|days?|weeks?|months?|years?)?\s?[-–]\s?[-–+]?\d+(?:\.\d+)?\s?(?:°[CF]|[kMG]?Hz|dBm|dB|[mµu]?[VAW]|[mµun]s|[KkMG]B|[mk]?m|cm|kΩ|Ω|ppm|hours|minutes|seconds|days|weeks|months|years)(?![\w-])'

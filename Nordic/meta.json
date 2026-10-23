@@ -1,4 +1,4 @@
 {
-  "feed": "https://github.com/francescoser/nordicvale/releases.atom",
-  "vale_version": ">=1.0.0"
+  "feed": "https://github.com/FrancescoSer/NordicVale/releases.atom",
+  "vale_version": ">=3.0.0"
 }

@@ -1,7 +1,17 @@
 # Acronyms
 
-According to Wikipedia, the World Health Organization (WHO) is a specialized agency of the United Nations that is concerned with international public health.
+The Secure Domain Firmware (SDFW) handles boot. SDFW is defined above.
 
-We can now use WHO because it has been defined, but we can't use DAFB because people may not know what it represents. We can use `DAFB` when it's presented as code, though.
+Configure the general-purpose input/output (GPIO) pins. Each GPIO has a mode.
 
-We can also use FAQ because it's an exception.
+The Universal Asynchronous Receiver/Transmitter (UART) is fast. Use the UART.
+
+The DAFB register is not defined. The HFXO is not defined either.
+
+Use USB, FAQ, URL, LED, RAM, CPU, and API without a definition. Write HTML and JSON.
+
+Send a GET or POST request. Set the PATH variable. Read the NOTE. Enter System OFF mode.
+
+The nRF Connect SDK is the SDK.
+
+Use `DAFB` when it is code.

@@ -1,9 +1,10 @@
 extends: existence
-message: "Don't add '%s' to a singular noun. Use plural instead."
+# Source: punctuation/parentheses.md, "Never use parentheses to hedge between singular and plural"
+# (Ambiguous: "Update the register(s) before proceeding")
+message: "Do not use '%s'. Use the plural, or the singular when there is always one."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/parentheses/#ambiguity-markers
+nonword: true
 ignorecase: true
 level: error
-## missingdoc
-link: https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/s/s-es
-raw:
-  - '\b\w+\(s\)\b'
-  - '\b\w+\(es\)\b'
+tokens:
+  - '(?<![\w-])\w[\w-]*\((?:s|es)\)'

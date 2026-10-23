@@ -1,25 +1,131 @@
 extends: substitution
+# Source: writing-tips/redundancies.md, "Remove redundancies to make your writing more
+# concise and direct." Entries from that page cite their line. The other entries come
+# from the MSWSG list behind this rule and fall under the same Nordic principle
+# ("Replace phrases with single words", redundancies.md:124). The phrases marked
+# "source: MSWSG" are on the MSWSG page itself.
 message: "Consider using '%s' instead of '%s'."
-link: https://docs.microsoft.com/en-us/style-guide/word-choice/use-simple-words-concise-sentences
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/redundancies/
 ignorecase: true
 level: suggestion
 action:
   name: replace
 swap:
-  "sufficient number(?: of)?": enough
-  (?:extract|take away|eliminate): remove
+  # --- redundancies.md, "Common redundant phrases" (lines 9-69) ---
+  absolutely essential: essential
+  actual experience: experience
+  add an additional: add
+  advance planning: planning
+  all of(?! a sudden| these): all
+  as a means of: to
+  at the present time: now|currently
+  basic fundamentals: fundamentals
+  cancel out: cancel
+  close proximity: proximity|near
+  combine together: combine
+  completely eliminate: eliminate
+  consensus of opinion: consensus
+  continue to remain: remain
+  currently existing: current|existing
+  delete out: delete
+  desirable benefits: benefits
+  due to the fact that: because
+  each and every: each|every
+  eliminate entirely: eliminate
+  end result: result
+  entirely complete: complete
+  exactly identical: identical
+  final outcome: outcome
+  first and foremost: first
+  for the purpose of: to|for
+  free gift: gift
+  future plans: plans
+  general public: public
+  group together: group
+  had done previously: had done
+  has the ability to: can
+  # MSWSG also lists "as a means to". source: MSWSG https://learn.microsoft.com/en-us/style-guide/word-choice/use-simple-words-concise-sentences
   (?:in order to|as a means to): to
+  in spite of the fact that: although|despite
+  in the event that: if
+  is able to: can
+  join together: join
+  merge together: merge
+  mutual cooperation: cooperation
+  never before: never
+  new innovation: innovation
+  on a daily basis: daily
+  past experience: experience
+  period of time: period|time
+  plan ahead: plan
+  refer back to: refer to
+  repeat again: repeat
+  return back: return
+  revert back: revert
+  still persists: persists
+  sufficient enough: sufficient|enough
+  summarize briefly: summarize
+  surrounded on all sides: surrounded
+  the reason is because: because
+  true facts: facts
+  unexpected surprise: surprise
+  until such time as: until
+  whether or not: whether
+  # --- redundancies.md, "Redundant modifiers" (lines 79-90) ---
+  completely finished: finished
+  currently pending: pending
+  empty void: void
+  exact same: same
+  forever permanent: permanent
+  (?:most|very) unique: unique
+  previously established: established
+  successfully completed: completed
+  totally destroyed: destroyed
+  # --- redundancies.md, "Redundant verbs" (lines 98-106) ---
+  # "start up" is not here: glossary.md:599 keeps the phrasal verb "to start up".
+  # "shut down" is acceptable (redundancies.md:104).
+  boot up: boot
+  compile down: compile
+  connect up: connect
+  print out: print
+  test out: test
+  # --- redundancies.md, "Redundant categories" (lines 114-120) ---
+  # "in color", "in size", and "in shape" are left out: they are too ambiguous for a regex
+  # ("a change in size").
+  during the month of: during
+  in the field of: in
+  # --- redundancies.md, "Replace phrases with single words" (lines 128-143) ---
+  a (?:large )?number of: many
+  at this point in time: now
+  bring to a conclusion: conclude
+  by means of: by|with
+  give an indication of: indicate
+  has the capability of: can
+  in close proximity to: near
+  is dependent (?:up)?on: depends on
+  it is necessary that: must
+  make a determination: determine
+  make an adjustment to: adjust
+  on a regular basis: regularly
+  take into consideration: consider
+  # --- MSWSG list, under redundancies.md:124 ---
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/word-choice/use-simple-words-concise-sentences
+  # "eliminate" is not here: redundancies.md:22 and :29 use it as the concise form.
+  (?:extract|take away): remove
   (?:inform|let me know): tell
-  (?:previous|prior) to: before
   (?:utilize|make use of): use
-  a (?:large)? majority of: most
-  a (?:large)? number of: many
+  # Also writing-tips/jargon.md:84, :85, :86, :92, :98 ("in addition: also", "in order to: to", "prior to: before", "utilize: use").
+  in addition: also
+  establish connectivity: connect
+  # The rest of the MSWSG-era list.
+  'sufficient number(?: of)?': enough
+  (?:previous|prior) to: before
+  a (?:large )?majority of: most
   a myriad of: myriad
   adversely impact: hurt
   all across: across
   all of a sudden: suddenly
   all of these: these
-  all of(?! a sudden| these): all
   all-time record: record
   almost all: most
   almost never: seldom
@@ -30,14 +136,11 @@ swap:
   any and all: all
   are in agreement: agree
   as a matter of fact: in fact
-  as a means of: to
   as a result of: because of
   as of yet: yet
   as per: per
   at a later date: later
   at all times: always
-  at the present time: now
-  at this point in time: at this point
   based in large part on: based on
   based on the fact that: because
   basic necessity: necessity
@@ -57,13 +160,9 @@ swap:
   despite the fact that: although
   disappear from sight: disappear
   doomed to fail: doomed
-  drag and drop: drag
-  drag-and-drop: drag
-  due to the fact that: because
   during the period of: during
   during the time that: while
   emergency situation: emergency
-  establish connectivity: connect
   except when: unless
   excessive number: too many
   extend an invitation: invite
@@ -71,7 +170,6 @@ swap:
   fell down: fell
   for the duration of: during
   gather together: gather
-  has the ability to: can
   has the capacity to: can
   has the opportunity to: could
   hold a meeting: meet
@@ -79,18 +177,14 @@ swap:
   in a careful manner: carefully
   in a thoughtful manner: thoughtfully
   in a timely manner: timely
-  in addition: also
   in an effort to: to
   in between: between
   in lieu of: instead of
   in many cases: often
   in most cases: usually
-  in order to: to
   in some cases: sometimes
-  in spite of the fact that: although
   in spite of: despite
-  in the (?:very)? near future: soon
-  in the event that: if
+  in the (?:very )?near future: soon
   in the neighborhood of: roughly
   in the vicinity of: close to
   it would appear that: apparently
@@ -120,8 +214,6 @@ swap:
   this is a subject that: this subject
   time (?:frame|period): time
   under the provisions of: under
-  until such time as: until
   used for fuel purposes: used for fuel
-  whether or not: whether
   with regard to: regarding
   with the exception of: except for

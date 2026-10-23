@@ -1,14 +1,27 @@
 extends: existence
-message: "'%s' doesn't need a hyphen."
-link: https://docs.microsoft.com/en-us/style-guide/punctuation/dashes-hyphens/hyphens
+# Source: punctuation/dashes-and-hyphens.md, "Do not use a hyphen" table:
+# "With a compound modifier (adverb) ending in "ly"", "With some prefixes:
+# auto, bi, co, ... un", and "Number + unit not used as a modifier".
+# The guide also allows a hyphen "To prevent ambiguity" (re-cover), so this is
+# a warning, without an automatic fix (the fix differs for each case).
+message: "'%s' does not need a hyphen."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/dashes-and-hyphens/#do-not-use-a-hyphen
 level: warning
-ignorecase: false
 nonword: true
-action:
-  name: edit
-  params:
-    - regex
-    - "-"
-    - " "
 tokens:
-  - '\b[^\s-]+ly-\w+\b'
+  # Adverb ending in -ly + participle (easily-remembered). Skip words that end
+  # in -ly but are not adverbs (family-friendly, early-stage, only-child,
+  # daily-build, assembly-level, reply-to, supply-voltage).
+  - '\b(?!(?i:early|only|daily|family|assembly|reply|supply|apply|multiply|comply|rely|fly|poly|anomaly|monopoly|july|italy|hourly|nightly|weekly|monthly|quarterly|yearly|friendly|elderly|holy|ugly)-)[A-Za-z]+ly-[a-z]\w*'
+  # No-hyphen prefixes (pre-defined, auto-scale, non-volatile). The hyphen
+  # stays when:
+  # - the stem starts with a capital letter or a digit (non-XML, sub-GHz, pre-2020);
+  # - the prefix ends with the letter the stem starts with (re-enable, co-organizer);
+  # - the word is a phrase, not a prefixed word (over-the-air, under-the-hood);
+  # - the guide defines the term itself: sub-series (product-names.md) and
+  #   non-blocking, non-readable, non-secure, non-volatile, non-writable
+  #   (glossary.md, which lists them as the correct spelling).
+  - '\b(?i:auto|bi|co|cyber|exa|giga|inter|kilo|mega|meta|micro|mid|mini|multi|neo|non|over|pan|post|pre|pro|re|sub|tera|under|un)-(?!(?<=(\w)-)\1)(?!the-|series\b|(?:blocking|readable|secure|volatile|writable)\b)[a-z]+\b(?!-)'
+  # Number + unit symbol after a verb, not before a noun (is 10-kΩ, are 1.8-V).
+  # Before a noun, the hyphen is correct (a 10-kΩ resistor).
+  - '(?<=\b(?:is|are|was|were|be|becomes?)\s+)\d+(?:\.\d+)?-(?:[kMGmµun]?(?:Ω|V|A|W|Hz|F|H|s)|mm|cm|km|m|dBm?|dBi|kB|KB|MB|GB|kbps|Mbps)(?=[.,;:)]|\s+(?:and|or|but|when|if|at|in|on|for|to|with|from)\b|\s*$)'

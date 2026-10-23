@@ -1,0 +1,90 @@
+extends: substitution
+# Source: glossary.md:275, "Terms in the list that appear in red are prohibited."
+# Prohibited terms from glossary.md, acronyms.md, and product-names.md. Each entry cites
+# its line. Restricted terms, terms to avoid, and spelling rules are in
+# Nordic.GlossaryPreferred (warning), because a substitution rule has only one level.
+message: "Use '%s' instead of '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/glossary/#list-of-terms
+level: error
+ignorecase: false
+action:
+  name: replace
+swap:
+  # glossary.md:294, "Prohibited: ammeter, amperemeter, or ampere-meter."
+  '[Aa](?:mmeter|mperemeter|mpere-meter)': ampere meter
+  '[Aa](?:mmeters|mperemeters|mpere-meters)': ampere meters
+  # glossary.md:296, :297, :412, "Prohibited: Attribute Database, ATTDB".
+  'Attribute Database|ATTDB': Attribute Table|GATT Server Attribute Table
+  # glossary.md:313, :317, "BLE ... Prohibited. Use: Bluetooth Low Energy", "Bluetooth LE is acceptable."
+  BLE: Bluetooth Low Energy|Bluetooth LE
+  # glossary.md:315, "Prohibited: BLE Host, Bluetooth LE Host".
+  'BLE Host|Bluetooth®? LE Host': Bluetooth Host
+  # glossary.md:588, "Prohibited: 'BLE Stack' or 'S110 Stack'". BLE alone is caught above.
+  '(?<=\bS\d{3} )[Ss]tack': SoftDevice
+  # glossary.md:312, "Prohibited: This application has been qualified against Bluetooth® 5.0."
+  'qualified against Bluetooth(®?) (\d+(?:\.\d+)?)': qualified against Bluetooth$1 Core $2
+  # glossary.md:311, :470, LEDs blink. "Prohibited: to flash", "A blinking LED (Prohibited: 'flash')".
+  '[Ff]lashing(?= (?:an? |the )?LEDs?\b)': blinking
+  '[Ff]lash(?:es)?(?= (?:an? |the )?LEDs?\b)': blink
+  # glossary.md:365, :646, "to double-check ... prohibited. Use 'verify' instead."
+  '[Dd]ouble[- ]check': verify
+  '[Dd]ouble[- ]checks': verifies
+  '[Dd]ouble[- ]checked': verified
+  '[Dd]ouble[- ]checking': verifying
+  # glossary.md:436, "ID ... Prohibited: Id, id". Not after a hyphen, slash, dot, or
+  # hash, so that anchors and options such as "#id" or "--id" do not match.
+  '(?<![-/.#])(?:Id|id)(?![-/.])': ID
+  '(?<![-/.#])(?:Ids|ids)(?![-/.])': IDs
+  # glossary.md:473, "lithium ferro-phosphate, lithium ferrous-phosphate ... Prohibited. Use 'lithium iron phosphate'."
+  '[Ll]ithium ferro(?:us)?-phosphate': lithium iron phosphate
+  # glossary.md:474, :476, "Prohibited: LiPo batteries".
+  'LiPo': Li-poly|lithium-polymer
+  # glossary.md:485, "Not: M4F".
+  '(?:Cortex-)?M4F': Cortex-M4 with FPU
+  # glossary.md:505, "Prohibited: tag 2 type, tag type 2".
+  '[Tt]ag 2 [Tt]ype|[Tt]ag [Tt]ype 2': Type 2 Tag
+  # glossary.md:513, "Prohibited: nRF Connect extension, nRF Connect extension for VS Code,
+  # or similar forms with plural 'extensions'".
+  'nRF Connect extensions?(?: for VS Code)?': nRF Connect for VS Code extension
+  # glossary.md:543, "PC ... Preferred: computer" (in red, so prohibited).
+  PC: computer
+  PCs: computers
+  # glossary.md:597, "SPI command ... Prohibited. Use SPI instruction".
+  SPI command: SPI instruction
+  SPI commands: SPI instructions
+  # glossary.md:470, "Prohibited: a LED".
+  'a LED': an LED
+  'A LED': An LED
+  # glossary.md:602, "subimage ... Use 'child image' instead."
+  '[Ss]ub-?image': child image
+  '[Ss]ub-?images': child images
+  # glossary.md:346, :671, "Prohibited: XO, XOSC".
+  'XOSC|XO': crystal oscillator
+  # glossary.md:345, :672, "Prohibited: Xtal, XTAL".
+  'XTAL|Xtal': crystal
+  # glossary.md:661, "Wi-Fi Alliance ... abbreviating is prohibited."
+  WFA: Wi-Fi Alliance
+  # acronyms.md:30, :199, product-names.md:98, "Do not abbreviate 'nRF Connect SDK' as 'NCS' or 'NCSDK'".
+  'NCS|NCSDK': nRF Connect SDK
+  # acronyms.md:31, :32, "Do not abbreviate 'Secure Partition Manager' as 'SPM'", "... as 'NSPM'".
+  SPM: Secure Partition Manager
+  NSPM: Nordic Secure Partition Manager
+  # product-names.md:60, "Not allowed: nRF Series, nRF5 Series, nRF5x Series, nRF9 Series, nRF9x Series".
+  # Name the series, for example "the nRF91, nRF53, and nRF52 Series" (product-names.md:59).
+  'nRF Series': nRF52 Series|nRF53 Series|nRF54L Series|nRF91 Series
+  'nRF5x? Series': nRF51 Series|nRF52 Series|nRF53 Series|nRF54L Series
+  'nRF9x? Series': nRF91 Series
+  # product-names.md:144, :145, :147, "Incorrect: NRF52840, Nrf52840, nrf52840", "NPM1300, Npm1300".
+  # Lowercase nrf is only matched before a bare number, not in board names
+  # (nrf52840dk) or paths (nrf52840dk/nrf52840).
+  '(?:NRF|Nrf)(\d\w*)': nRF$1
+  '(?<![/\w-])nrf(\d+)(?![\w/-])': nRF$1
+  '(?:NRF|Nrf|nrf) [Cc]onnect': nRF Connect
+  '(?:NPM|Npm)(\d{4}\w*)': nPM$1
+  # product-names.md:146, "Incorrect: Nordic thingy:91, NORDIC THINGY:91".
+  '(?<=Nordic )(?:thingy|THINGY)(?=:)': Thingy
+  'NORDIC THINGY(?=:)': Nordic Thingy
+  # product-names.md:174, "Incorrect: nRF52840 DKs". Use "nRF52840 DK boards".
+  '(?<=\bnRF\d{4,5} )DKs': DK boards
+  # product-names.md:109, "Do not use: baremetal (as a single word) or bare-metal (hyphenated)".
+  '[Bb]aremetal|[Bb]are-[Mm]etal': Bare Metal

@@ -1,11 +1,16 @@
 extends: existence
+# Source: grammar/person.md, "Generally avoid first-person plural ... It is OK to use phrasing like
+# "we recommend" if it helps you avoid awkward phrasing like "it is recommended"."
+# Case-sensitive so that "US" (United States) does not match "us".
 message: "Try to avoid using first-person plural like '%s'."
-link: https://docs.microsoft.com/en-us/style-guide/grammar/person#avoid-first-person-plural
+link: https://nordicplayground.github.io/techdocs-style-guide/grammar/person/#avoid-first-person-plural
 level: warning
-ignorecase: true
+ignorecase: false
+nonword: true
 tokens:
-  - we
-  - we'(?:ve|re)
-  - ours?
-  - us
-  - let's
+  - \b[Ww]e['’](?:d|ll|re|ve)\b
+  - \b[Ww]e\b(?!\s+recommend)
+  - \b[Oo]urs?\b
+  - \b[Oo]urselves\b
+  - (?<!-)\b[Uu]s\b(?!-)
+  - \b[Ll]et['’]s\b

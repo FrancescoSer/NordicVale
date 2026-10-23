@@ -1,9 +1,16 @@
 extends: substitution
-message: "Use 'might' (possibility) or 'can' (ability) instead of '%s', depending on the context."
-link: to_be_added
-level: error
-ignorecase: true
+# source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/c/can-may
+# ("Use might to express possibility. Don't use may, which might be interpreted as
+# providing permission.") The Nordic guide has no rule on "may" and uses it itself
+# (for example acronyms.md:8, acronyms.md:116), so this is a warning, not an error.
+# Link: the closest Nordic text is writing-tips/jargon.md:101-108, "Shall" and "should",
+# which sets the modal verbs: "Use can when something is possible."
+# Case-sensitive, so the month "May" does not match.
+message: "Use '%s' instead of '%s'. Use 'might' for possibility and 'can' for ability."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/jargon/#shall-and-should
+level: warning
+ignorecase: false
 action:
   name: replace
 swap:
-  may: might
+  may: might|can

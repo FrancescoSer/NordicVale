@@ -1,6 +1,11 @@
 extends: existence
-message: "Don't use end punctuation in headings."
-link: https://docs.microsoft.com/en-us/style-guide/punctuation/periods
+# Source: content-structure/headings.md, "Do not end headings with a period." and
+# "Question mark or an exclamation point - can be used if it is needed for
+# meaning, but these should be extreme exceptions."
+# Source: punctuation/colons.md, "Do not use a colon ... At the end of a procedure heading"
+# Because ? and ! are allowed in rare cases, this is a warning.
+message: "Do not end a heading with '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/content-structure/headings/#avoid-most-punctuation
 nonword: true
 level: warning
 scope: heading
@@ -8,6 +13,8 @@ action:
   name: edit
   params:
     - trim_right
-    - ".?!"
+    - ".?!:;,"
 tokens:
-  - "[a-z][.?!]$"
+  # End punctuation after a letter, a digit, or a closing parenthesis or
+  # quotation mark. An ellipsis (...) is left to Nordic.Ellipses.
+  - '(?<=[\w)"”’`])(?<!\.\.)[.?!:;,]$'

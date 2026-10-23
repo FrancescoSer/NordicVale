@@ -1,30 +1,59 @@
 extends: substitution
+# Source: writing-tips/index.md, "Use contractions carefully" (also grammar/index.md).
+# The guide forbids some forms ("Do not use it's"), says to avoid others (that's, mustn't, shan't, ain't),
+# and accepts common ones ("Common contractions such as can't, isn't, and don't ... are usually not
+# a problem", "use contractions only when they improve natural flow"). One rule cannot carry
+# several levels, so this flags every contraction as a suggestion. House style is to spell them out.
+# Forms with I (I'm, I'll) are left to Nordic.FirstPerson.
 message: "Use '%s' instead of '%s'."
-link: https://writing.wisc.edu/handbook/style/contractions/
-level: error
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/#use-contractions-carefully
+level: suggestion
 ignorecase: true
 action:
   name: replace
 swap:
-  aren't: are not
-  can't: cannot
-  couldn't: could not
-  didn't: did not
-  don't: do not
-  doesn't: does not
-  hasn't: has not
-  haven't: have not
-  how's: how is
-  isn't: is not
-  it's: it is
-  shouldn't: should not
-  that's: that is
-  they're: they are
-  wasn't: was not
-  we're: we are
-  we've: we have
-  weren't: were not
-  what's: what is
-  when's: when is
-  where's: where is
-  won't: will not
+  "ain['’]t": is not
+  "aren['’]t": are not
+  "can['’]t": cannot
+  "couldn['’]t": could not
+  "didn['’]t": did not
+  "doesn['’]t": does not
+  "don['’]t": do not
+  "hasn['’]t": has not
+  "haven['’]t": have not
+  "here['’]s": here is
+  "how['’]s": how is
+  "isn['’]t": is not
+  "it['’]ll": it will
+  "it['’]s": it is
+  "let['’]s": let us
+  "mightn['’]t": might not
+  "mustn['’]t": must not
+  "needn['’]t": need not
+  "shan['’]t": shall not
+  "shouldn['’]t": should not
+  "that['’]s": that is
+  "there['’]s": there is
+  "they['’]d": they would
+  "they['’]ll": they will
+  "they['’]re": they are
+  "they['’]ve": they have
+  "wasn['’]t": was not
+  "we['’]d": we would
+  "we['’]ll": we will
+  "we['’]re": we are
+  "we['’]ve": we have
+  "weren['’]t": were not
+  "what['’]s": what is
+  "when['’]s": when is
+  "where['’]s": where is
+  "who['’]s": who is
+  "won['’]t": will not
+  "wouldn['’]t": would not
+  "you['’]d": you would
+  "you['’]ll": you will
+  "you['’]re": you are
+  "you['’]ve": you have
+  gonna: going to
+  gotta: have to
+  wanna: want to

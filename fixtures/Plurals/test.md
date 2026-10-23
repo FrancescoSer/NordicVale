@@ -1,5 +1,9 @@
 # Plurals
 
-This app will use the add-on registry to extend the basic CMS capabilities, so an external add-on can supplement their own add-on(s) to the basic CMS ones.
+Update the register(s) before proceeding.
 
-Use checkbox(es) as needed in your form.
+Use checkbox(es) as needed. Supplement your add-on(s).
+
+Update all relevant registers before proceeding.
+
+Call `func(s)` or :c:func:`get(s)` in the code.

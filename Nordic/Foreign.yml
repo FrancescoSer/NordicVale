@@ -1,16 +1,23 @@
 extends: substitution
+# Source: grammar/index.md, "Avoid Latin abbreviations for common English phrases."
+# Source: writing-tips/jargon.md, "Do not use Latin abbreviations in documentation."
+# The i.e. replacement ("that is" vs "in other words"/"specifically") is deferred conflict C6.
+# Not covered: etc. (allowed where space is limited), via and per (context-dependent).
 message: "Use '%s' instead of '%s'."
-## missingdoc
-link: https://docs.microsoft.com/en-us/style-guide/word-choice/use-us-spelling-avoid-non-english-words
-# To match “E.g.” and “e.g.”
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/jargon/#avoid-latin-abbreviations
+# To match "E.g." and "e.g."
 ignorecase: true
 level: error
 nonword: true
 action:
   name: replace
 swap:
-  '\b(?:eg|e\.g\.)[\s,]': for example
+  # Lookaheads keep the following space or comma out of the match.
+  '\b(?:eg|e\.g\.)(?=[\s,]|$)': for example
   # To match only "i.e.", not "ie"
-  '\bi\.e\.(?=[\s,])': that is
-  '\b(?:viz\.)[\s,]': namely
-  '\b(?:ergo)[\s,]': therefore
+  '\bi\.e\.(?=[\s,]|$)': that is
+  '\bviz\.(?=[\s,]|$)': namely
+  '\bergo(?=[\s,]|$)': therefore
+  '\bet al\.(?=[\s,]|$)': and others
+  # Case-sensitive, so "VS Code" does not match.
+  '\b(?-i:vs)\.?(?=\s)': versus

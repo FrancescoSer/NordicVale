@@ -1,7 +1,14 @@
 extends: existence
+# Source: grammar/sentence-structure.md, "Use active voice as the default." and "When passive voice
+# is acceptable" (also grammar/index.md and grammar/verbs.md). Passive voice is sometimes correct,
+# and this pattern cannot tell a passive verb from an adjective, so this is a suggestion.
 message: "'%s' looks like passive voice."
+link: https://nordicplayground.github.io/techdocs-style-guide/grammar/sentence-structure/#active-voice-vs-passive-voice
 ignorecase: true
 level: suggestion
+# Participles that usually act as adjectives in technical text ("is based on", "is supported on").
+exceptions:
+  - (?:am|are|were|being|is|been|was|be)\s*(?:based|located|required|supported)
 raw:
   - \b(am|are|were|being|is|been|was|be)\b\s*
 tokens:

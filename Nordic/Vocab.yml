@@ -1,22 +1,45 @@
 extends: existence
-message: "Verify your use of '%s' with the A-Z word list."
-link: 'https://docs.microsoft.com/en-us/style-guide'
+# Source: MSWSG A-Z word list. Each word has an entry that restricts its use to some
+# contexts, so the rule only asks the writer to check it. The Nordic guide has no A-Z
+# word list of its own. Nordic pages that also cover a word are noted below. The link goes
+# to the Nordic glossary, the closest Nordic page; MSWSG URLs stay in comments.
+message: "Verify your use of '%s'. This word is correct only in some contexts."
+link: https://nordicplayground.github.io/techdocs-style-guide/glossary/#list-of-terms
 level: suggestion
 ignorecase: true
 tokens:
+  # Source: content-structure/cross-references.md:120, "Do not use spatial references like 'above'".
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/above
   - above
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/accessible
   - accessible
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/actionable
   - actionable
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/against
   - against
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/alarm
   - alarm
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/alert
   - alert
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/alias
   - alias
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/and-or
   - and/or
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/as-well-as
   - as well as
+  # Source: acronyms.md:236, "Ensure vs. Insure vs. Assure".
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/assure-ensure-insure
   - assure
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/author
   - author
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/avg
   - avg
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/b/beta
   - beta
+  # Source: writing-tips/bias-free-communication.md:18, "Do not use he, him, his, she, her, or hers in generic references."
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/h/he-she
   - he
+  # Source: acronyms.md:236, "Ensure vs. Insure vs. Assure".
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/i/insure-assure-ensure
   - insure
   - she

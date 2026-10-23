@@ -1,13 +1,13 @@
-# Date Formatting
+# Date format
 
-It's 12 Mar 2016. This is okay: 15 and 2017
+The release is on 12 Mar 2016.
 
-It happened on October twenty-eighth.
+The release is on 3 April 2024 and 7 June 2025.
 
-For example, 6/12/2017 might be June 12, 2017 or December 6, 2017.
+The release is on 15 Oct 2023.
 
-Users may see the following behavior.
+The release is on June 12, 2017.
 
-The project started in May of 2013.
+Users may see 12 may 2016 in the log.
 
-Is it June first?
+Use `12 Mar 2016` in the configuration file.

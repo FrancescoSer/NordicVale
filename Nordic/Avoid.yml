@@ -1,12 +1,19 @@
 extends: existence
-message: "Don't use '%s'. See the A-Z word list for details."
-# See the A-Z word list
-link: https://github.com/NordicPlayground/test-style-guide
+# Source: none in the Nordic guide. Every entry comes from the MSWSG A-Z word list, where each is "Don't use".
+# "and so on" was removed: writing-tips/jargon.md recommends it ("etc. | and so on").
+# source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/abort-abortion
+message: "Do not use '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/glossary/#list-of-terms
 ignorecase: true
 level: error
 tokens:
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/abort-abortion
   - abortion
-  - and so on
-  - app(?:lication)?s? (?:developer|program)
-  - (?i)app(?:lication)?\sfile(?!-)
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/application-developer-app-developer
+  - app(?:lication)?s? developer
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/app-application
+  - app(?:lication)?s? program
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/application-file-app-file
+  - app(?:lication)?\sfile(?!-)
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/c/contiguous-selection
   - contiguous selection

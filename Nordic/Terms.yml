@@ -1,46 +1,89 @@
 extends: substitution
+# Source: MSWSG A-Z word list and term collections. The Nordic guide is a fork of the
+# MSWSG and has no A-Z word list of its own, so most entries cite the live MSWSG entry.
+# Nordic-specific terms are in Nordic.Glossary (prohibited) and Nordic.GlossaryPreferred.
+# The link goes to the Nordic glossary, the closest Nordic page; MSWSG URLs stay in comments.
 message: "Prefer '%s' over '%s'."
-# term preference should be based on microsoft style guide, such as
-link: https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/adapter
+link: https://nordicplayground.github.io/techdocs-style-guide/glossary/#list-of-terms
 level: warning
 ignorecase: true
 action:
   name: replace
 swap:
-  "(?:agent|virtual assistant|intelligent personal assistant)": personal digital assistant
-  "(?:assembler|machine language)": assembly language
-  "(?:drive C:|drive C>|C: drive)": drive C
-  "(?:internet bot|web robot)s?": bot(s)
-  "(?:microsoft cloud|the cloud)": cloud
-  "(?:mobile|smart) ?phone": phone
-  "24/7": every day
-  "audio(?:-| )book": audiobook
-  "back(?:-| )light": backlight
-  "chat ?bots?": chatbot(s)
-  #kB not kb, not in a link
-  "(?<![\\w/\\.-])kb(?![\\w\\.-])": kB
-  #J-Link not jlink, not in a command syntax
-  "\b[Jj]link\b": J-Link
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/assembly-language
+  '(?:assembler|machine language)': assembly language
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/computer-device-terms
+  '(?:drive C:|drive C>|C: drive)': drive C
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/ai-bot-terms
+  '(?:internet bot|web robot)': bot
+  '(?:internet bots|web robots)': bots
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/computer-device-terms
+  # ("Don't use wireless phone, cell phone, or cellular phone." Mobile phone and smartphone are allowed.)
+  '(?:cell|cellular|wireless) phone': phone|mobile phone
+  '(?:cell|cellular|wireless) phones': phones|mobile phones
+  'smart phone': smartphone
+  'smart phones': smartphones
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/date-time-terms
+  '24/7': all day, every day|always
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/audiobook
+  'audio(?:-| )book': audiobook
+  'audio(?:-| )books': audiobooks
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/b/backlight
+  'back(?:-| )light': backlight
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/ai-bot-terms
+  # Only the spaced forms: "chatbot" must not match itself.
+  'chat bot': chatbot
+  'chat bots': chatbots
+  # Units: deferred conflict C4 (KB vs kB). The direction (kb and KB to kB, mb to MB, ...)
+  # is unchanged. Bug fix: the rule is ignorecase, so these entries also rewrote
+  # bit units (Kb kilobit, Mb megabit, Gb gigabit, Tb terabit, Pb, Eb, Zb) and GBps
+  # (gigabytes per second) to the byte unit. (?-i:) makes the unit entries case-sensitive
+  # and leaves the bit forms alone.
+  # kB not kb, not in a link or a path. Bug fix: a period that ends the sentence no
+  # longer stops the match (only a period followed by a word character does).
+  '(?<![\w/\.-])(?-i:kb|KB)(?![\w-]|\.\w)': kB
+  '(?-i:mb|mB)': MB
+  '(?-i:gb|gB)': GB
+  '(?-i:tb|tB)': TB
+  '(?-i:pb|pB)': PB
+  '(?-i:eb|eB)': EB
+  '(?-i:zb|zB)': ZB
+  '(?-i:gbps|GBPS)': Gbps
+  # Source: glossary.md:449, "J-Link". Command syntax is in code, which Vale skips.
+  jlink: J-Link
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/computer-device-terms
   adaptor: adapter
+  adaptors: adapters
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/administer
   administrate: administer
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/afterward
   afterwards: afterward
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/alphabetical
   alphabetic: alphabetical
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/alphanumeric
   alphanumerical: alphanumeric
+  # Source: urls-web-addresses.md uses "a URL" throughout (lines 9, 14).
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/u/url
   an URL: a URL
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/antialiasing
   anti-aliasing: antialiasing
-  anti-malware: antimalware
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/anti-malware
+  # ("Hyphenate." The old entry went the other way.)
+  antimalware: anti-malware
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/antispyware
   anti-spyware: antispyware
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/antivirus
   anti-virus: antivirus
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/appendix-appendices
   appendixes: appendices
-  artificial intelligence: AI
-  caap: CaaP
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/ai-bot-terms
+  # ("Don't capitalize as CAAP." The case-sensitive pattern lets CaaP itself pass.)
+  '(?-i:caap|CAAP|Caap)': CaaP
   conversation-as-a-platform: conversation as a platform
-  eb: EB
-  gb: GB
-  gbps: Gbps
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/keys-keyboard-shortcuts
   keypress: keystroke
-  mb: MB
-  pb: PB
-  tb: TB
+  keypresses: keystrokes
+  # Source: glossary.md:616, "to time out (v.) timeout (n., mod.)".
+  # source: MSWSG https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/t/time-out
   time-out: timeout
-  zb: ZB
+  time-outs: timeouts

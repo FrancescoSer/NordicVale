@@ -1,6 +1,8 @@
 extends: existence
+# Source: numbers.md, "Form a negative number with an en dash, not a hyphen" (example: –79)
+# Deferred conflict C2 (en dash vs hyphen vs minus): do not change the direction of this rule.
 message: "Form a negative number with an en dash, not a hyphen."
-link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/numbers.md
+link: https://nordicplayground.github.io/techdocs-style-guide/numbers/#negative-numbers
 nonword: true
 level: error
 action:
@@ -10,4 +12,5 @@ action:
     - "-"
     - "–"
 tokens:
-  - '(?<=\s)-\d+(?:\.\d+)?\b'
+  # A hyphen before a number at the start of a line, after a space, or after "(".
+  - '(?<=^|[\s(])-\d+(?:\.\d+)?\b'

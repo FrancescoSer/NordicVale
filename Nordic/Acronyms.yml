@@ -1,165 +1,86 @@
 extends: conditional
-message: "'%s' has no definition."
-link: https://docs.microsoft.com/en-us/style-guide/acronyms
+# Source: acronyms.md:12, "Write every product name, feature name, and technical term in
+# full on its first use on each page, with the acronym in parentheses."
+message: "'%s' has no definition. Spell out the term on first use, with the acronym in parentheses."
+link: https://nordicplayground.github.io/techdocs-style-guide/acronyms/#first-use-rule
 level: suggestion
 ignorecase: false
 # Ensures that the existence of 'first' implies the existence of 'second'.
 first: '\b([A-Z]{3,5})\b'
-second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
+# The spelled-out form is lowercase except for proper nouns (acronyms.md:54), so the
+# words before the parentheses can have any case and can contain hyphens and slashes,
+# for example "general-purpose input/output (GPIO)".
+second: '(?:\b[\w®/.+-]+ )+\(([A-Z]{3,5})\)'
 # ... with the exception of these:
 exceptions:
-  - ACME
-  - ADAC
-  - AES
-  - AMP
+  # Universally recognized acronyms. Source: acronyms.md:22, "USB, FAQ, URL, LED, RAM, CPU, API".
   - API
-  - APIs
-  - APB
-  - ARM
-  - ASP
-  - BICR
-  - CBOR
-  - CCM
-  - CDDL
-  - CLI
-  - CLK
-  - COEX
-  - COM
   - CPU
-  - CPUs
-  - CSN
-  - CSS
-  - CTRL
-  - CSV
-  - DEBUG
-  - DFU
-  - DK
-  - DMA
-  - DOM
-  - DPI
-  - DTS
-  - DVFS
-  - ESB
-  - EXMIF
   - FAQ
-  - FLPR
+  - LED
+  - RAM
+  - URL
+  - USB
+  # Part of the product name "nRF Connect SDK", which is never abbreviated further.
+  # Source: product-names.md:97, "Subsequent references: The nRF Connect SDK, the SDK".
+  - SDK
+  # General computing and industry-standard acronyms that dictionaries list.
+  # Source: acronyms.md:38, "If an acronym is listed in The American Heritage Dictionary,
+  # it can be used without further explanation."
+  - AES
+  - ASCII
+  - CLI
+  - CSS
+  - CSV
+  - DOM
   - GCC
   - GDB
-  - GET
-  - GND
-  - GPIO
   - GPU
-  - GRTC
-  - GTK
   - GUI
-  - HCI
-  - HEX
-  - HFXO
-  - HOST
   - HTML
-  - HSFLL
-  - HSFLLs
   - HTTP
   - HTTPS
-  - ICMsg
-  - ICBMsg
-  - ID
   - IDE
   - IEEE
   - IETF
-  - IPC
-  - IRQ
-  - ISR
-  - JAR
   - JSON
-  - JSX
-  - LCS
-  - LESS
-  - LFCLK
-  - LFXO
   - LLDB
-  - MAC
-  - MCU
-  - MIPI
-  - MPC
-  - MPI
-  - MRAM
-  - NCS
-  - NET
-  - NFC
-  - NOTE
-  - NSC
-  - NVDA
-  - NVM
   - OEM
-  - OSS
-  - PATH
-  - PCA
-  - PCB
   - PDF
   - PHP
-  - POST
-  - PPR
-  - PRO
-  - PSA
-  - PUF
-  - RAM
-  - RAW
-  - REPL
-  - RESET
   - RFC
-  - RISC
-  - RMA
-  - RoT
   - ROM
   - RSA
-  - RTOS
-  - SAADC
-  - SCFW
-  - SCM
-  - SCSS
-  - SDFW
-  - SDK
-  - SDRFW
-  - SDROM
-  - SMP
-  - SoC
-  - SPI
-  - SPIS
-  - SPU
   - SQL
-  - SSF
   - SSH
   - SSL
-  - SUIT
   - SVG
-  - SVD
-  - SWD
-  - SWJ
-  - SYSCTRL
   - TCP
-  - TTP
-  - UART
-  - UARTE
-  - UARTE120
-  - UICR
   - URI
-  - URIs
-  - URL
-  - USB
-  - USBHS
   - UTF
   - UUID
-  - VBUS
-  - VCOM
-  - VDD
-  - VDDH
-  - VEVIF
-  - VID
-  - VPR
-  - VPRs
-  - VSC
   - XML
-  - XSS
   - YAML
+  # Word-like tokens. These are written in capitals but are not acronyms that need a
+  # definition: HTTP methods (GET, POST), environment variables and file formats
+  # (PATH, HEX, ZIP), admonition labels (NOTE), register, task, and state names
+  # (RESET, STOP, IDLE, OFF, from glossary.md:384, :522, :600, :614), product or
+  # placeholder names (ACME, NET from .NET, PRO), and COM ports.
+  - ACME
+  - COM
+  - DEBUG
+  - GET
+  - HEX
+  - HOST
+  - IDLE
+  - LESS
+  - NET
+  - NOTE
+  - OFF
+  - PATH
+  - POST
+  - PRO
+  - RAW
+  - RESET
+  - STOP
   - ZIP

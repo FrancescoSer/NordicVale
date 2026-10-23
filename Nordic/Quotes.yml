@@ -1,8 +1,12 @@
 extends: existence
-message: 'Punctuation should be inside the quotes.'
-link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/punctuation/quotation-marks.md
+# Source: punctuation/quotation-marks.md, "Place the final quotation mark after commas and periods."
+# Colons and semicolons go outside the quotation marks unless they are part of
+# the quoted text, so they are not checked here.
+message: "Put commas and periods inside the quotation marks."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/quotation-marks/#place-closing-quotation-marks
 level: error
 nonword: true
 tokens:
-  - '(?<!: )["“][^"”“]+["”][.,]'
-# exception after colons
+  # A quoted phrase followed by a comma or period. A quotation after a colon
+  # (often a quoted UI string or input) is skipped.
+  - '(?<!: )["“][^"”“\n]+["”][.,]'

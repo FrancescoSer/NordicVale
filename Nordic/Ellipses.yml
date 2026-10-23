@@ -1,9 +1,15 @@
 extends: existence
-message: "In general, don't use an ellipsis."
-link: https://docs.microsoft.com/en-us/style-guide/punctuation/ellipses
+# Source: punctuation/ellipses.md, "In general, do not use an ellipsis except in the situations described here or to indicate omitted code"
+# The guide allows an ellipsis in conversational UI messages and in quoted
+# material, so this is a warning without an automatic fix.
+message: "In general, do not use an ellipsis."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/ellipses/
 nonword: true
 level: warning
-action:
-  name: remove
 tokens:
-  - '\.\.\.'
+  # Three periods or the ellipsis character (U+2026). Skip:
+  # - an ellipsis right before a closing quotation mark, which marks omitted
+  #   text in quoted material ("As mentioned above...");
+  # - an rst section adornment or transition line that docutils leaves in the
+  #   text (for example, an underline that is too short).
+  - '(?m)(?:(?<!^\.*)\.{3}|^\.{3}(?!\.*[ \t]*$)|…)(?!\??["”])'

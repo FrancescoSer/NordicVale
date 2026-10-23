@@ -1,18 +1,21 @@
-# Test: modern documentation management
-
-# This is a heading
-
 # This is a Heading
 
-# Another one.
+## Accepting a JSON response
 
-# Accepting a JSON response
+## Install nRF Connect for VS Code on Windows
 
-# Top-level entities
+## Program the Nordic Thingy:91 with the Programmer app
 
-## Find the thief: Introduction
+## Use the nRF52840 Dongle with Bluetooth LE
 
-# 8. Do step eight
+## Configure the Secure Domain Firmware
 
-# Another heading something vs. cool
+## Install Docker
 
+## Use the `MyFunction` API
+
+## Test: modern documentation management
+
+## Set up Visual Studio Code
+
+## Debug with VS Code
