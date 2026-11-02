@@ -1,0 +1,9 @@
+extends: existence
+# Source: units-of-measurement.md:31, "When a unit is combined with a value, always use numerals ... Do not spell out numbers that appear with a unit." (Incorrect: three V, seven ms)
+# Only unit symbols are matched. Spelled-out units are deferred conflict C8.
+message: "Use a numeral with a unit symbol, not '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/units-of-measurement/#numbers-with-units
+level: error
+nonword: true
+tokens:
+  - '(?i:\b(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve))\s+(?:[mµunkMG]?(?:V|W|Hz|Ω|F)|[mµun]A|[mµun]s|dBm|dBi|dB|mm|cm|km|kB|KB|MB|GB|kbps|Mbps|ppm|°C|mAh)\b'

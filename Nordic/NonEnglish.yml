@@ -1,0 +1,24 @@
+extends: existence
+# Source: grammar/index.md:9, "Avoid non-English words or phrases, such as de facto or ad hoc." Latin abbreviations are in Nordic.Foreign.
+message: "Avoid the non-English phrase '%s'. Use a common English word."
+link: https://nordicplayground.github.io/techdocs-style-guide/grammar/#use-american-english-and-avoid-non-english-words
+level: warning
+ignorecase: true
+tokens:
+  - ad hoc
+  - de facto
+  - per se
+  - vice versa
+  - visa versa
+  - a priori
+  - a posteriori
+  - bona fide
+  - in situ
+  - vis-[àa]-vis
+  - ad infinitum
+  - et cetera
+  - inter alia
+  - mutatis mutandis
+  - sine qua non
+  - status quo
+  - raison d['’]être

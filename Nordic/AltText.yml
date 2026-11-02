@@ -1,0 +1,12 @@
+extends: existence
+# Source: writing-tips/accessibility.md:71, "Do not start with "Image of" or "Picture of" (screen readers announce it is an image)".
+# writing-tips/accessibility.md:88-100, Avoid: alt text "Picture" and "Diagram".
+message: "Do not start alt text with '%s'. Describe the content and function of the image."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/accessibility/#alt-text-for-images
+level: warning
+ignorecase: true
+scope: alt
+nonword: true
+tokens:
+  - '^(?:an? )?(?:image|picture|photo|photograph|screenshot|screen shot|graphic|illustration) of\b'
+  - '^(?:image|picture|photo|diagram|screenshot|figure|graphic|icon|logo)$'

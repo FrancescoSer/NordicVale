@@ -1,6 +1,11 @@
 extends: occurrence
-message: "Try to keep sentences short (< 30 words)."
+# Source: grammar/sentence-structure.md, "keep individual sentences under 25 words"
+message: "Keep sentences under 25 words."
+link: https://nordicplayground.github.io/techdocs-style-guide/grammar/sentence-structure/#keep-sentences-short
 scope: sentence
 level: suggestion
-max: 30
-token: \b(\w+)\b
+# Alert at 25 words or more.
+max: 24
+# A word starts with a letter or digit and may contain apostrophes, hyphens,
+# periods, and underscores, so "don't", "nRF52840", "3.3", and "e.g." are one word each.
+token: '[\p{L}\p{N}][\p{L}\p{N}''’._-]*'

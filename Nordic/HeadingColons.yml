@@ -1,15 +1,13 @@
 extends: existence
-message: "Capitalize '%s'."
-link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/punctuation/colons.md
+# Source: punctuation/colons.md, "In titles and headings: Capitalize the word after it"
+# Deferred conflict C5: capitalization.md says to capitalize the first word
+# after a colon in a heading only if it is a proper noun. The behavior of this
+# rule is unchanged until the guide resolves the conflict.
+message: "Capitalize the first word after the colon in '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/colons/#use-a-colon
 nonword: true
 level: error
 scope: heading
 tokens:
+  # Skip lowercase product and repository names after the colon (nRF, fwupd, sdk-nrf).
   - ':\s(?!(?:nRF|fwupd|sdk-[a-z0-9_-]+))[a-z]'
-
-# Skips when the text after the colon is “nRF” or any “sdk-...” repository name
-
-## nRF and sdk- are embedded in the regex to avoid false positives.
-## These should be included in a separate exception rule list.
-## Original regex:   - ':\s[a-z]'
-## Previous reger:   - ':\s(?!nRF)[a-z]'

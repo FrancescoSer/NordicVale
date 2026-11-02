@@ -1,6 +1,8 @@
 extends: existence
 message: Use 'AM' or 'PM' (preceded by a space).
-link: https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/date-time-terms
+# Disabled: deferred conflict C3 (numbers.md:33 AM/PM vs punctuation/periods.md:13 a.m.).
+# Source: numbers.md, "For time of day, include AM or PM after the numerical time."
+link: https://nordicplayground.github.io/techdocs-style-guide/numbers/#use-a-numeral
 level: error
 nonword: true
 tokens:

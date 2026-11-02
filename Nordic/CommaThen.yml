@@ -1,0 +1,10 @@
+extends: existence
+# Source: punctuation/commas.md:31, "Do not use a comma ... To join independent clauses when you do not use a conjunction" (Incorrect: Select Options, then select Enable fast saves.)
+message: "Do not join two clauses with ', then'. Use a semicolon, or write two sentences."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/commas/#do-not-use-a-comma
+level: warning
+nonword: true
+tokens:
+  # ", then" followed by a verb and its object ("..., then select **OK**", "..., then rebuild the application").
+  # Skip a conditional ("If the pin is high, then write ...").
+  - '(?<!(?i:if|when|once) [^.,;:!?]*),\s+then\s+(?!the\b|a\b|an\b)[a-z]+\s+(?=(?:the|a|an|your|its|this|that|these|those|it|them|to|on|in|for|with|from)\b|\*\*|`|[A-Z])'

@@ -1,0 +1,12 @@
+extends: existence
+# Source: trademarks.md:70-73, "Place the trademark symbol immediately after the trademark, with no space" (Incorrect: Bluetooth ®, Bluetooth (®)).
+# trademarks.md:78 allows "Bluetooth(R)" in plain text, so (R) and (TM) are not flagged.
+message: "Place the trademark symbol immediately after the trademark, with no space or parentheses ('%s')."
+link: https://nordicplayground.github.io/techdocs-style-guide/trademarks/#symbol-placement
+level: error
+nonword: true
+tokens:
+  # Skip prose that names the symbol after a function word ("First use has ®", trademarks.md:66).
+  - '\b(?!(?i:has|have|had|is|are|the|a|an|and|or|of|with|without|use|uses|using|add|adds|omit|omits|symbol|mark|trademark)\b)\w+[ \t]+[®™℠]'
+  # Skip a symbol in parentheses after the words trademark, mark, or symbol ("Registered trademark (®)").
+  - '\b(?!(?i:trademark|mark|symbol)\b)\w+[ \t]*\([®™℠]\)'

@@ -1,8 +1,12 @@
 extends: existence
-message: "Don't use '%s'."
-link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/grammar/nouns-pronouns.md
+# Source: writing-tips/bias-free-communication.md, "Do not use constructions like he/she and s/he."
+# "his or her" is in the "Not this" column of the same section.
+message: "Do not use '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/bias-free-communication/#do-not-use-gender-specific-pronouns-in-generic-reference
 level: error
 ignorecase: true
+nonword: true
 tokens:
-  - he/she
-  - s/he
+  - \b(?:he/she|she/he|s/he|his/her|her/his|him/her|her/him|hers/his|his/hers)\b
+  - \(s\)he\b
+  - \b(?:he or she|she or he|his or her|her or his|him or her|her or him|his or hers)\b

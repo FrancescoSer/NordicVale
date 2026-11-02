@@ -1,0 +1,244 @@
+extends: substitution
+# Source: glossary.md:27, "Use the following status values if needed: preferred,
+# restricted, prohibited, obsolete".
+# Spelling rules, restricted terms, and terms to avoid from glossary.md and
+# product-names.md. Each entry cites its line. Prohibited terms are in Nordic.Glossary (error).
+message: "Prefer '%s' over '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/glossary/#list-of-terms
+level: warning
+ignorecase: false
+action:
+  name: replace
+swap:
+  # --- Restricted terms and terms to avoid ---
+  # glossary.md:311, :594, "to blink smoothly (Avoid: to softblink)".
+  '[Ss]oft-?blink': blink smoothly
+  '[Ss]oft-?blinks': blinks smoothly
+  '[Ss]oft-?blinking': blinking smoothly
+  # glossary.md:323, :601, "buck regulator (DC/DC) Not converter", "step-down regulator ... Not 'converter'".
+  '(?<=[Bb]uck |[Ss]tep-down )converter': regulator
+  '(?<=[Bb]uck |[Ss]tep-down )converters': regulators
+  # glossary.md:399, "front-end module (n.) Use instead of 'range extender'."
+  '[Rr]ange extender': front-end module
+  '[Rr]ange extenders': front-end modules
+  # glossary.md:424, "a hexadecimal digit (Avoid: hex digit)", "a HEX file".
+  'hex digit': hexadecimal digit
+  'hex digits': hexadecimal digits
+  '(?<![.\w])hex file': HEX file
+  '(?<![.\w])hex files': HEX files
+  # glossary.md:434, :622, "I2C ... Prohibited when referring to our products. See 'two-wire'."
+  # The term is allowed for other products, so this is a warning.
+  'I2C|I²C': TWI|two-wire interface
+  # glossary.md:469, "linear voltage regulator (LDO), not low-dropout regulator".
+  '[Ll]ow-dropout regulator': linear voltage regulator
+  # glossary.md:562, "to query (a register) Status: Restricted. Preferred: to read a register".
+  '[Qq]uery(?= (?:the |a |an )?(?:\w+ )?registers?\b)': read
+  '[Qq]ueries(?= (?:the |a |an )?(?:\w+ )?registers?\b)': reads
+  '[Qq]ueried(?= (?:the |a |an )?(?:\w+ )?registers?\b)': read
+  '[Qq]uerying(?= (?:the |a |an )?(?:\w+ )?registers?\b)': reading
+  # glossary.md:596, "Avoid: SPI interface because 'I' stands for 'interface'."
+  SPI interface: SPI
+  # glossary.md:603, "to sync, synced, syncing ... to synch ... Status: Restricted. An informal word for 'to synchronize'."
+  '[Ss]ynch?': synchronize
+  '[Ss]ynch?s': synchronizes
+  '[Ss]ynch?ed': synchronized
+  '[Ss]ynch?ing': synchronizing
+  # glossary.md:644, "vanilla Avoid in documentation. Use standard instead."
+  '[Vv]anilla': standard
+  # --- Spelling ---
+  # glossary.md:282, "3D (mod.)".
+  '3-D|3d': 3D
+  # glossary.md:283, "6LoWPAN".
+  '6LowPAN|6lowpan|6LOWPAN': 6LoWPAN
+  # glossary.md:298, "Auracast®".
+  'AuraCast|auracast': Auracast
+  # glossary.md:308, "baud rate (n.) Spelling: Two words".
+  '[Bb]aud-?rate': baud rate
+  '[Bb]aud-?rates': baud rates
+  # glossary.md:309, "Usually no hyphen after the prefix bi-. Examples: bidirectional, bipolar".
+  '[Bb]i-directional': bidirectional
+  '[Bb]i-polar': bipolar
+  # glossary.md:317, "Bluetooth® Low Energy". Brand names are capitalized. Not in domain
+  # names such as bluetooth.com.
+  '(?<![./\w-])bluetooth(?![\w/-]|\.\w)': Bluetooth
+  'Bluetooth®? (?:low energy|Low energy|low Energy)': Bluetooth Low Energy
+  # glossary.md:322, "brownout (n.) Spelling: One word".
+  '[Bb]rown-out': brownout
+  # glossary.md:324, "bug fix (n.) Spelling: Two words".
+  '[Bb]ug-?fix': bug fix
+  '[Bb]ug-?fixes': bug fixes
+  # glossary.md:333, "changelog (n.) Spelling: one word, not two".
+  '[Cc]hange[- ]log': changelog
+  '[Cc]hange[- ]logs': changelogs
+  # glossary.md:337, "Usually no hyphen after the prefix co-. Examples: cooperation, coexist, coauthor".
+  '[Cc]o-exist': coexist
+  '[Cc]o-existence': coexistence
+  '[Cc]o-operation': cooperation
+  '[Cc]o-author': coauthor
+  # glossary.md:338, "CoAP".
+  'COAP|Coap': CoAP
+  # glossary.md:354, "DC/DC Use a slash and not a hyphen."
+  'DC-DC': DC/DC
+  # glossary.md:357, "data rate (n.) Spelling: Two words."
+  '[Dd]ata-?rate': data rate
+  '[Dd]ata-?rates': data rates
+  # glossary.md:358, "datasheet (n.) Spelling: One word."
+  '[Dd]ata[- ]sheet': datasheet
+  '[Dd]ata[- ]sheets': datasheets
+  # glossary.md:359, :360, :361, "Usually no hyphen after the prefix de-. Examples: decoupling, deassert, devalue, demount".
+  '[Dd]e-assert': deassert
+  '[Dd]e-asserted': deasserted
+  '[Dd]e-couple': decouple
+  '[Dd]e-coupling': decoupling
+  '[Dd]e-mount': demount
+  # glossary.md:371, "drop-down (adj.) Example: Click the drop-down menu."
+  '[Dd]ropdown|[Dd]rop down(?= (?:menu|list|box)s?\b)': drop-down
+  # glossary.md:379, "email (n.) Spelling: No hyphen."
+  '[Ee]-mail': email
+  '[Ee]-mails': emails
+  # glossary.md:380, "endian Spelling: Use a hyphen. Example: big-endian, little-endian".
+  '[Bb]ig ?endian': big-endian
+  '[Ll]ittle ?endian': little-endian
+  # glossary.md:382, "endpoint (n., mod.) Spelling: One word."
+  '[Ee]nd[- ]point': endpoint
+  '[Ee]nd[- ]points': endpoints
+  # glossary.md:393, "file name (n., mod.) Spelling: Two words."
+  '[Ff]ilename': file name
+  '[Ff]ilenames': file names
+  # glossary.md:394, "file system (n., mod.) Spelling: Two words".
+  '[Ff]ile-?system': file system
+  '[Ff]ile-?systems': file systems
+  # glossary.md:399, "front-end module (n.)".
+  '[Ff]ront[ -]?end module|[Ff]rontend module': front-end module
+  # glossary.md:421, "hardcoded (mod.) Spelling: One word".
+  '[Hh]ard[- ]coded': hardcoded
+  # glossary.md:422, "hard fault (n.)". HardFault (the Arm exception name) is left alone.
+  'hardfault|hard-fault': hard fault
+  # glossary.md:426, "hot fix (n.) Spelling: Two words".
+  '[Hh]ot-?fix': hot fix
+  '[Hh]ot-?fixes': hot fixes
+  # glossary.md:437, "Infocenter (n., proper)".
+  'InfoCenter|infocenter': Infocenter
+  # glossary.md:438, "InfoPage (n., proper) Spelling: CamelCase."
+  'Infopage|Info [Pp]age|info page|infopage': InfoPage
+  # glossary.md:440, "Internet (n., proper) Spelling: uppercase".
+  '(?<![./\w-])internet(?![\w/-]|\.\w)': Internet
+  # glossary.md:441, "Usually no hyphen after the prefix inter-. Example: interoperable, interoperability".
+  '[Ii]nter-operable': interoperable
+  '[Ii]nter-operability': interoperability
+  # glossary.md:460, "keystream (n., mod.) Spelling: One word."
+  '[Kk]ey[- ]stream': keystream
+  # glossary.md:461, "keyword (n., mod.) Spelling: One word."
+  '[Kk]ey-word': keyword
+  '[Kk]ey-words': keywords
+  # glossary.md:471, "life cycle (n.)".
+  '[Ll]ife-?cycle': life cycle
+  '[Ll]ife-?cycles': life cycles
+  # glossary.md:472, "link-local (mod.) Spelling: lowercase, with a hyphen."
+  '[Ll]ink local|Link-Local': link-local
+  # glossary.md:477, "to log in to (v.) login (n., mod.)".
+  '[Ll]og-in': log in|login
+  # glossary.md:489, "Mbed".
+  'mbed|MBED|mBed': Mbed
+  # glossary.md:488, "Master Emulator (n., proper) Spelling: Capitalize."
+  '[Mm]aster emulator|master Emulator': Master Emulator
+  # glossary.md:491, "microcontroller (n., mod.) Spelling: One word."
+  '[Mm]icro[- ]controller': microcontroller
+  '[Mm]icro[- ]controllers': microcontrollers
+  # glossary.md:494, "motherboard (n.)".
+  '[Mm]other[- ]board': motherboard
+  # glossary.md:495, "Usually no hyphen after the prefix multi-. Examples: multicellular, multiprotocol, multicell".
+  '[Mm]ulti-protocol': multiprotocol
+  '[Mm]ulti-cell': multicell
+  # glossary.md:503, "NACK Spelling: All capitals".
+  'Nack|nack': NACK
+  # glossary.md:507, :508, :510, :511, "non-readable", "non-secure", "non-volatile", "non-writable".
+  '[Nn]onreadable': non-readable
+  '[Nn]onsecure': non-secure
+  '[Nn]onvolatile': non-volatile
+  '[Nn]onwritable': non-writable
+  # glossary.md:527, "online (mod., adj.) Spelling: One word."
+  '[Oo]n-line': online
+  # glossary.md:532, :534, "overcharge, overcurrent", "overvoltage".
+  '[Oo]ver-charge': overcharge
+  '[Oo]ver-current': overcurrent
+  '[Oo]ver-voltage': overvoltage
+  # glossary.md:547, "pinout (n.) Spelling: One word".
+  '[Pp]in[- ]out': pinout
+  '[Pp]in[- ]outs': pinouts
+  # glossary.md:549, "power-fail comparator (n.) Spelling: Use a hyphen and do not capitalize."
+  '[Pp]ower fail comparator|Power-[Ff]ail [Cc]omparator|power-fail Comparator': power-fail comparator
+  # glossary.md:550, "power-on reset (n.) Spelling: Modifier hyphenated".
+  '[Pp]ower on reset': power-on reset
+  # glossary.md:551, "Usually no hyphen after the prefix pre-. Examples: prescaler, prescaling".
+  '[Pp]re-scaler': prescaler
+  '[Pp]re-scalers': prescalers
+  '[Pp]re-scaling': prescaling
+  # glossary.md:554, "pull-up/pull-down (n., adj.) Spelling: Always with a hyphen."
+  '[Pp]ullup|[Pp]ull up(?= resistors?\b)': pull-up
+  '[Pp]ullups': pull-ups
+  '[Pp]ulldown|[Pp]ull down(?= resistors?\b)': pull-down
+  '[Pp]ulldowns': pull-downs
+  # glossary.md:572, "readback (n., mod.)".
+  '[Rr]ead-back': readback
+  # glossary.md:573, "Usually no hyphen after the prefix re-. Example: retransmission".
+  '[Rr]e-transmission': retransmission
+  '[Rr]e-transmissions': retransmissions
+  # glossary.md:574, "RF transceiver ... Lowercase initial 't' for 'transceiver'".
+  '(?<=RF )Transceiver': transceiver
+  # glossary.md:576, "runtime (n., mod.)".
+  '[Rr]un-time': runtime
+  # glossary.md:589, "to set up (v.) setup (n., mod.)".
+  '[Ss]et-up': set up|setup
+  # glossary.md:591, "to sign up (v.) sign-up (n., mod.)".
+  '[Ss]ignup': sign up|sign-up
+  # glossary.md:593, "single protocol (n., mod.) Spelling: Two words".
+  '[Ss]ingle-protocol': single protocol
+  # glossary.md:595, "SoftDevice (n., proper)".
+  'Softdevice|softdevice|[Ss]oft[- ][Dd]evice|SOFTDEVICE': SoftDevice
+  'Softdevices|softdevices|[Ss]oft[- ][Dd]evices': SoftDevices
+  # glossary.md:598, "standby (n., adv., mod.)".
+  '[Ss]tand-by': standby
+  # glossary.md:599, "startup (n., mod.)".
+  '[Ss]tart-up': startup
+  # glossary.md:604, :605, "System in Package (n.)", "System on Chip (n.)".
+  '[Ss]ystem on a [Cc]hip': System on Chip
+  '[Ss]ystem-on-a-[Cc]hip': System-on-Chip
+  '[Ss]ystem in a [Pp]ackage': System in Package
+  '[Ss]ystem-in-a-[Pp]ackage': System-in-Package
+  # glossary.md:617, "timestamp (n.) Spelling: One word."
+  '[Tt]ime[- ]stamp': timestamp
+  '[Tt]ime[- ]stamps': timestamps
+  # glossary.md:618, "toolchain (n.) Spelling: One word".
+  '[Tt]ool[- ]chain': toolchain
+  '[Tt]ool[- ]chains': toolchains
+  # glossary.md:624, "TX/RX Spelling: Capitalize all letters, use forward slash."
+  'Tx/Rx|tx/rx|TX-RX|Tx-Rx|TX/Rx': TX/RX
+  # glossary.md:632, "an exception is 'ultra-low power'".
+  '[Uu]ltra low[- ]power|[Uu]ltralow power': ultra-low power
+  # glossary.md:633, "undervoltage ... Spelled as one word."
+  '[Uu]nder[- ]voltage': undervoltage
+  # glossary.md:636, "username (n., common) Spelling: Lowercase (all common nouns), one word."
+  '[Uu]ser[- ]name': username
+  '[Uu]ser[- ]names': usernames
+  # glossary.md:654, "to wake up (v.) wakeup (n., mod.)".
+  '[Ww]ake-up': wakeup
+  # glossary.md:656, "walk-through (n.) Use hyphen".
+  '[Ww]alkthrough': walk-through
+  '[Ww]alkthroughs': walk-throughs
+  # glossary.md:659, "whitelist (n., mod.)".
+  '[Ww]hite[- ]list': whitelist
+  # glossary.md:660, "Wi-Fi (n., mod.)".
+  'WiFi|Wifi|wifi|Wi-fi|WIFI|wi-fi': Wi-Fi
+  # glossary.md:662, "writeback (n., mod.)".
+  '[Ww]rite-back': writeback
+  # glossary.md:663, "workaround (n.) Spelling: No hyphen."
+  '[Ww]ork-around': workaround
+  '[Ww]ork-arounds': workarounds
+  # glossary.md:680, "zip (mod.) Examples: a zip file, a zip package."
+  'ZIP file|Zip file': zip file
+  'ZIP files|Zip files': zip files
+  # product-names.md:53, "The nRF52 Series". Series is part of the name.
+  '(?<=\bnRF\d{2}[A-Z]? )series': Series
+  # product-names.md:102, "Plural: The nRF Connect SDK Add-ons".
+  'nRF Connect SDK add-ons': nRF Connect SDK Add-ons

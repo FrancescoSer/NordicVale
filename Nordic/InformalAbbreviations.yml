@@ -1,0 +1,20 @@
+extends: substitution
+# Source: acronyms.md:184-194, "Terms to avoid": FW, HW, SW, DB, repo, docs, config.
+# Case-sensitive, so dB (decibel) and Kconfig do not match. A DB after an nRF part
+# number is a development board product name (nRF21540 DB), not a database.
+message: "Use '%s' instead of '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/acronyms/#terms-to-avoid
+level: warning
+ignorecase: false
+action:
+  name: replace
+swap:
+  FW: firmware
+  HW: hardware
+  SW: software
+  '(?<!\bnRF\w+ )DB': database
+  '[Rr]epo': repository
+  '[Rr]epos': repositories
+  '[Dd]ocs': documentation
+  '[Cc]onfig(?!\.\w)': configuration
+  '[Cc]onfigs': configurations

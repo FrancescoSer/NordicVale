@@ -1,0 +1,14 @@
+extends: existence
+# Source: content-structure/headings.md:70, "Use a maximum of four heading levels." and :77, "If you need a fifth level, restructure your content."
+# In rst, docutils renders the page title as a separate h1 and numbers the sections from h1 again, so a
+# fifth-level rst heading is an h4 and the rule fires from the sixth level. A page with a lone section
+# under the title shifts one level more (docutils makes it a subtitle).
+message: "Use a maximum of four heading levels. Restructure the content instead of adding a fifth level."
+link: https://nordicplayground.github.io/techdocs-style-guide/content-structure/headings/#limit-heading-depth
+level: warning
+scope:
+  - heading.h5
+  - heading.h6
+nonword: true
+tokens:
+  - '^\S'

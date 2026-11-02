@@ -1,8 +1,11 @@
 extends: existence
-message: "Always spell out the name of the month."
-link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/numbers.md
-ignorecase: true
-level: error
+# Source: numbers.md, "Always spell out the name of the month. The positions of the month and day vary by country.
+# Specify the format for the audience: MM/DD/YYYY for U.S., DD/MM/YYYY for others."
+# Warning, not error: the guide allows a numeric format that is specified for the audience,
+# and UI time stamps (punctuation/dashes-and-hyphens.md) use numeric dates.
+message: "Spell out the name of the month in '%s', unless the format is specified for the audience or shown in the UI."
+link: https://nordicplayground.github.io/techdocs-style-guide/numbers/#numbers-in-dates
+level: warning
 nonword: true
 tokens:
   - '\b\d{1,2}/\d{1,2}/(?:\d{4}|\d{2})\b'

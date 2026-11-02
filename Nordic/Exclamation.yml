@@ -1,0 +1,10 @@
+extends: existence
+# Source: punctuation/exclamation-points.md:3, "Do not use exclamation points except where they have some technical significance."
+# Headings are left to Nordic.HeadingPunctuation. Vale skips code (the ! operator). MkDocs "!!! note" does not match.
+message: "Do not use an exclamation point in '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/exclamation-points/
+level: warning
+nonword: true
+scope: ~heading
+tokens:
+  - '\w+!(?=\s|$|["”)])'

@@ -1,0 +1,11 @@
+extends: existence
+# Source: writing-tips/online-writing.md:147-154, "Do not use language that assumes a print format." ("On the next page...", "Turn to Chapter 5", "See the facing page", "This manual contains...")
+message: "Do not use language that assumes a print format, such as '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/online-writing/#avoid-print-specific-references
+level: warning
+ignorecase: true
+tokens:
+  - (?:on|see|in) the (?:next|previous|preceding|following|facing|opposite) page
+  - turn to (?:chapter|page|section|part)
+  - this (?:manual|book|handbook)
+  - overleaf

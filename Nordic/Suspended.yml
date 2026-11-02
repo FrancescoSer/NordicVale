@@ -1,7 +1,9 @@
 extends: existence
-message: "Don't use '%s' unless space is limited."
-link: https://docs.microsoft.com/en-us/style-guide/punctuation/dashes-hyphens/hyphens
+# Source: punctuation/dashes-and-hyphens.md, "Do not use a hyphen ... By itself in suspended form: 8- and 7-bit characters"
+message: "Do not use the suspended form '%s'. Write each compound in full, for example '8-bit and 7-bit'."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/dashes-and-hyphens/#do-not-use-a-hyphen
 ignorecase: true
-level: warning
+nonword: true
+level: error
 tokens:
-  - '\w+- and \w+-'
+  - '\b\w+- (?:and|or|to) \w+-'

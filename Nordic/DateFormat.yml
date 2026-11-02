@@ -1,9 +1,8 @@
 extends: existence
-message: Use 'July 31, 2016' format, not '%s'.
-## missingdoc
-link: https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/date-time-terms
-ignorecase: true
+# Source: numbers.md, "Always spell out the name of the month." (example: "June 12, 2017")
+message: "Use the 'June 12, 2017' format, not '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/numbers/#numbers-in-dates
 level: error
 nonword: true
 tokens:
-  - '\d{1,2} (?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)|May|Jun(?:e)|Jul(?:y)|Aug(?:ust)|Sep(?:tember)?|Oct(?:ober)|Nov(?:ember)?|Dec(?:ember)?) \d{4}'
+  - '\b\d{1,2}\.? (?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?,? \d{4}\b'

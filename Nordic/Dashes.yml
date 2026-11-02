@@ -1,7 +1,13 @@
 extends: existence
-message: "Remove the spaces around '%s'."
-link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/punctuation/dashes-and-hyphens.md
-ignorecase: true
+# Source: punctuation/dashes-and-hyphens.md, "Do not use spaces on either side of an en dash."
+# Em dashes are always closed (see the examples under "Use an em dash").
+# The guide allows a spaced en dash in three cases, which this rule skips:
+# - as a minus sign in an equation (12 – 3 = 9) and in a UI time stamp
+#   (PM 12/1/17 – 4:45 PM): a digit on either side;
+# - as a list term separator (DMA mode – Transfers data): the definition
+#   after the dash starts with a capital letter.
+message: "Remove the spaces around the dash in '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/dashes-and-hyphens/#do-not-use-an-en-dash
 nonword: true
 level: error
 action:
@@ -10,4 +16,7 @@ action:
     - trim
     - " "
 tokens:
-  - '(?<!\d)\s[—–]\s(?!\d)'
+  # Em dash with a space on either side.
+  - '[ \t]—[ \t]?|—[ \t]'
+  # Spaced en dash in running text.
+  - '(?<!\d)[ \t]–[ \t](?![\dA-Z])'

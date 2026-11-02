@@ -1,13 +1,13 @@
 extends: existence
-message: "Don't add -ly to an ordinal number."
-link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/numbers.md
+# Source: numbers.md, "Always spell out ordinal numbers." (the first row)
+# Source: units-of-measurement.md, "Spell out ordinal numbers in running text." (first, not 1st)
+# source: MSWSG https://learn.microsoft.com/en-us/style-guide/numbers, "Don't add -ly to an ordinal number, as in firstly or secondly."
+message: "Spell out ordinal numbers and do not add -ly. Use a word such as 'first', not '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/numbers/#use-ordinal-numbers
 level: error
-action:
-  name: edit
-  params:
-    - trim
-    - ly
+nonword: true
+ignorecase: true
 tokens:
-  - firstly
-  - secondly
-  - thirdly
+  - '\b(?:first|second|third)ly\b'
+  # Numeric ordinals. Dates such as "June 1st" are left to Nordic.DateNumbers.
+  - '(?<!\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+)\b\d+(?:st|nd|rd|th)\b'

@@ -1,8 +1,15 @@
 extends: existence
-message: "Use the Oxford comma in '%s'."
-link: https://docs.microsoft.com/en-us/style-guide/punctuation/commas
+# Source: punctuation/commas.md, "In a series of three or more items" ("an external drive, or OneDrive").
+# Vale cannot parse a series reliably, so this is a suggestion.
+message: "Use a comma before the conjunction in the series '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/commas/#use-a-comma
 scope: sentence
 level: suggestion
 nonword: true
 tokens:
-  - '(?:[^\s,]+,){1,} \w+ (?:and|or) \w+[.?!]'
+  # Four or more items of up to three words each, ending the clause:
+  # "A, B, C and D." Items cannot contain "and" or "or", which skips a series
+  # that already has the comma, and words like "that is" or "such as".
+  - '(?:\b(?!(?:and|or|that|such)\b)[\w-]+(?: (?!(?:and|or)\b)[\w-]+){0,2}, ){2,}(?!(?:and|or)\b)[\w-]+(?: (?!(?:and|or)\b)[\w-]+){0,2} (?:and|or) [\w-]+(?: [\w-]+){0,2}(?=[.?!;:)]|$)'
+  # Three single-word items at the end of a sentence: "red, blue and green."
+  - '\b[\w-]+, [\w-]+ (?:and|or) [\w-]+(?=[.?!])'

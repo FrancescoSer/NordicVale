@@ -1,0 +1,8 @@
+extends: existence
+# Source: punctuation/commas.md:33, "Do not use a comma ... Between the month and the year when a specific date is not mentioned" (November, 1990).
+message: "Do not use a comma between the month and the year in '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/commas/#do-not-use-a-comma
+level: error
+nonword: true
+tokens:
+  - '\b(?:January|February|March|April|May|June|July|August|September|October|November|December), \d{4}\b'

@@ -1,0 +1,17 @@
+extends: existence
+# Source: punctuation/quotation-marks.md:27-28, "Use code formatting, not quotation marks, for file names, directory paths, and API calls."
+# typographic-conventions.md:202-224 (file names), :641-662 (UUID), :665-689 (values) use monospace.
+# Vale skips inline code, so a match means that the text is not formatted as code.
+message: "Format '%s' as code."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/quotation-marks/#do-not-use-quotation-marks
+level: warning
+nonword: true
+tokens:
+  # Kconfig options.
+  - '\bCONFIG_[A-Z0-9_]+(?:=\w+)?'
+  # UUIDs.
+  - '\b[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}\b'
+  # File names with a source, build, or configuration extension.
+  - '(?<![\w/.-])[\w-]+\.(?:c|h|cpp|py|conf|overlay|dts|dtsi|yaml|yml|json|cmake|hex|elf|bin|toml|ini|sh|ps1)\b(?![\w/.-])'
+  # Function calls.
+  - '\b[a-z_][a-z0-9_]*_[a-z0-9_]*\(\)'

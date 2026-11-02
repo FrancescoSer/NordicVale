@@ -1,11 +1,19 @@
-# Passive voice
+# Passive
+
+The firmware image is validated by the bootloader.
 
 That was broken yesterday.
 
-This are related to the other issue.
+The transaction is committed.
 
-All collected entities and IDs starting from the master file.
+The configuration is based on the board.
 
-Uses the schema defined in the master file.
+The feature is supported on nRF52 Series devices.
+
+A license is required.
+
+The bootloader validates the firmware image.
 
 This refactor improves the speed of execution.
+
+Set the `is enabled` value.

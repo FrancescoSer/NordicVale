@@ -1,7 +1,10 @@
 extends: existence
-message: "Use a numeral plus the units."
-link: https://github.com/NordicPlayground/test-style-guide/blob/main/docs/numbers.md
+# Source: numbers.md, "Percentages, no matter how small, use a numeral plus percent."
+# Deferred conflict C1 (percent vs %): this rule only flags a spelled-out number before "percent".
+message: "Use a numeral for a percentage, not '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/numbers/#use-a-numeral
 nonword: true
+ignorecase: true
 level: error
 tokens:
-  - '\b[a-zA-z]+\spercent\b'
+  - '\b(?:(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:-(?:one|two|three|four|five|six|seven|eight|nine))?|zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|hundred)\s+percent\b'

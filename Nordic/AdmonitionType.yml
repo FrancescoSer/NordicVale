@@ -1,0 +1,11 @@
+extends: existence
+# Source: content-structure/notes-cautions-tips.md:5, "Use "Caution" instead of "Attention."" The types are note, caution, and warning (:9-66).
+# dita-guide.md:80-84, "Approved note types in the Nordic source material are: note, caution, warning".
+message: "Use only the note, caution, and warning admonitions, not '%s'. For 'attention', use 'caution'."
+link: https://nordicplayground.github.io/techdocs-style-guide/content-structure/notes-cautions-tips/
+level: warning
+scope: raw
+nonword: true
+tokens:
+  - '(?m)^[ \t]*(?:!!!|\?\?\?\+?) *(?:attention|danger|error|hint|important|tip|info|success|check|done|question|help|faq|failure|fail|missing|bug|example|quote|cite|abstract|summary|tldr|todo|seealso)\b'
+  - '(?m)^[ \t]*\.\. (?:attention|danger|error|hint|important|tip|seealso)::'

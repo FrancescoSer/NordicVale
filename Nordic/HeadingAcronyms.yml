@@ -1,83 +1,45 @@
 extends: existence
-message: "'%s' is used in a title or heading. Avoid using acronyms in a title or heading."
-link: https://docs.microsoft.com/en-us/style-guide/acronyms#be-careful-with-acronyms-in-titles-and-headings
+# Source: acronyms.md:48, "Avoid using an acronym in a heading unless absolutely necessary
+# for SEO. Instead, spell out the term in full."
+# Source: content-structure/headings.md:59, "Use either the full term or the acronym in
+# headings, not both" (so an acronym definition such as "(UART)" is flagged too).
+message: "Avoid acronyms in headings: '%s'. Spell out the term, and define the acronym in the body text."
+link: https://nordicplayground.github.io/techdocs-style-guide/acronyms/#avoid-using-acronyms-in-headings
 level: warning
 scope: heading
+# The tokens carry their own word boundaries, because the definition token starts with '('.
+nonword: true
 tokens:
-  - '[A-Z]{2,4}'
+  # An acronym definition in parentheses, such as "(UART)" or "(Bluetooth LE)".
+  - '\((?:[\w®]+ )*[A-Z][A-Za-z0-9]*[A-Z][A-Za-z0-9]*s?\)'
+  # Any acronym of two or more capital letters, also with digits (I2C) and a plural s.
+  - '\b[A-Z][A-Z0-9]*[A-Z][A-Z0-9]*s?\b'
 exceptions:
-  - ACME
-  - ADAC
-  - AES
-  - AMP
+  # Part numbers and part families are names, not acronyms, for example BH1749,
+  # PAW3212, BME68X, and CC3XX.
+  - '[A-Z]+\d{2,}\w*'
+  - '[A-Z]+\d+X+'
+  # Universally recognized acronyms. Source: acronyms.md:22, "USB, FAQ, URL, LED, RAM, CPU, API".
   - API
   - APIs
-  - APB
-  - ARM
-  - ASP
-  - BICR
-  - CBOR
-  - CCM
-  - CDDL
-  - CLI
-  - CLK
-  - COEX
   - CPU
   - CPUs
-  - CSN
-  - CSS
-  - CTRL
-  - CSV
-  - DEBUG
-  - DFU
-  - DK
-  - DMA
-  - DOM
-  - DPI
-  - DTS
-  - DVFS
-  - EK
-  - ESB
-  - ETR
-  - EXMIF
   - FAQ
-  - FLPR
-  - GCC
-  - GDB
-  - GDFS
-  - GET
-  - GND
-  - GPIO
-  - GRTC
-  - GUI
-  - HCI
-  - HEX
-  - HFXO
-  - HOST
-  - HTML
-  - HSFLL
-  - HSFLLs
-  - I2C
-  - I2S
-  - I2U
-  - ICMsg
-  - ICBMsg
-  - ID
-  - IDE
-  - IEEE
-  - IETF
-  - IPC
-  - KMS
-  - MAC
-  - MRAM
-  - NCS
-  - PCB
-  - PPR
+  - FAQs
+  - LED
+  - LEDs
   - RAM
-  - SDFW
+  - URL
+  - URLs
+  - USB
+  # Parts of product names. Product names keep their form in headings.
+  # Source: product-names.md:151, "Product names in headings follow the same
+  # capitalization as in body text." Example: "Working with nRF52840 DK" (product-names.md:153).
+  - DK
+  - EK
   - SDK
-  - SMP
-  - STM
-  - SUIT
-  - UART
-  - YAML
+  # VS from the product name "VS Code" (glossary.md:513, "nRF Connect for VS Code extension").
+  - VS
+  # Mode and state names that are not acronyms (glossary.md:522, :526, "OFF mode", "ON mode").
+  - OFF
+  - ON
