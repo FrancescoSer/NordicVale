@@ -32,8 +32,12 @@ python -m venv NewVenvName
 Install `vale` and `docutils` inside the Virtual Environment:
 
 ```bash
-pip install vale docutils
+pip install "vale>=3.25.1" docutils
 ```
+
+The `vale` package on PyPI downloads the standalone Vale binary of the same version. The style needs Vale 3.25.1 or later, which CI tests. You can also download the standalone binary from the [Vale releases](https://github.com/errata-ai/vale/releases) page and put it on your `PATH`.
+
+Do not use the snap build of Vale (`snap install vale`). It cannot run the `rst2html` from your virtual environment, so it cannot lint `.rst` files, and it can lag behind the current release.
 
 ## Step 5: Verify Installation
 - **Check Vale:**
@@ -128,31 +132,56 @@ exit
 
 # Using the style in your project
 
-Add the style to your own `.vale.ini` and run `vale sync`, or point `StylesPath` at a clone of this repository:
+Each release publishes the style as `Nordic.zip`. Add the release URL to your own `.vale.ini` and run `vale sync`, or point `StylesPath` at a clone of this repository:
 
 ```ini
-StylesPath = .
+StylesPath = styles
 MinAlertLevel = suggestion
 
-Packages = Nordic
+Packages = https://github.com/FrancescoSer/NordicVale/releases/latest/download/Nordic.zip
 
 [*.{md,rst}]
 BasedOnStyles = Nordic
 ```
 
-The `.vale.ini` in this repository also ignores reStructuredText roles (such as `:ref:` and `:c:func:`), inline literals, `|substitutions|`, and the embedded targets of hyperlinks. Copy its `[*.rst]` section into your configuration.
+The `.vale.ini` in this repository also has format-specific settings. Copy its `[*.md]`, `[*.rst]`, and `[sphinx]` sections into your configuration:
+
+- `[*.md]` `TokenIgnores` skips `</br>`. It is not a valid HTML tag, so Vale drops it and joins the text on either side, and `Spacing` flags `bits.</br>It` as `bits.It`.
+- `TokenIgnores` skips reStructuredText roles (such as `:ref:` and `:c:func:`), inline literals, `|substitutions|`, and the embedded targets of hyperlinks.
+- `TokenIgnores` also skips `code-block` directives whose language contains `+` or `#`, such as `C++`. Vale 3.25.1 does not recognize these directives as code, so without this setting it lints their body as prose.
+- `[sphinx]` `CodeDirectives` lists the nRF Connect SDK directives whose body is code or generated content, such as `msc` (message sequence charts) and `ncs-include`. Vale lints the body of any other directive that docutils does not know as prose. Add the directives your project uses.
+
+To check that your configuration loads without warnings, run `vale ls-config`.
 
 ## Markdown and reStructuredText
 
 - Vale renders `.rst` files with docutils (`rst2html`), so docutils must be installed in the environment that runs Vale. Without it, Vale cannot lint `.rst` files.
 - docutils already removes literal blocks (`::`), `code`, `code-block`, and `parsed-literal` directives, comments, and inline literals before linting. It also drops the content of Sphinx-only directives, such as `toctree`, that it does not know.
 - Markdown code spans and fenced code blocks are ignored by default.
+- Heading levels differ between the two formats. docutils renders the title of an `.rst` page as a separate top-level heading and numbers the sections below it from the top level again, so an `.rst` heading renders one HTML level up from the same heading in Markdown: a fifth-level `.rst` heading is an `h4`. Vale scopes cannot differ by format, so `HeadingDepth` (scopes `h5` and `h6`) flags a fifth-level heading in Markdown, but only a sixth-level heading in reStructuredText.
 
 ## Rules
 
 Each rule in `Nordic/` has a `link:` to the page of the [Nordic TechDocs Style Guide](https://nordicplayground.github.io/techdocs-style-guide/) it enforces, and a `# Source:` comment that quotes the guide. Entries that come only from the Microsoft Writing Style Guide, which the Nordic guide was forked from, have a `# source: MSWSG` comment.
 
 `coverage/nordic-guide.yml` lists, for each page of the guide, the rules that enforce it.
+
+Levels follow one convention:
+
+- **error**: the guide prohibits something, or uses *must*.
+- **warning**: the guide uses *avoid* or *should*.
+- **suggestion**: a judgment call, or a heuristic that can be noisy.
+
+To fail a CI job only on errors, run `vale --minAlertLevel=error`.
+
+Some rules come in pairs:
+
+- `Contractions` (suggestion) suggests expanding a contraction, because the guide says to use contractions carefully. `ContractionsAvoid` (warning) flags the forms the guide prohibits, such as `it's`, `that's`, and `gonna`.
+- `HeadingPunctuation` (warning) flags `? ! : ; ,` at the end of a heading. `HeadingPeriod` (error) flags a period.
+- `Foreign` replaces `vs.` with `versus` in running text. `HeadingVersus` asks for `vs.` in headings, as the guide requires.
+- `URLFormat` covers how to write a web address. `LinkText` flags vague link text such as `click here`.
+
+`Acronyms` has exceptions for the acronyms that `acronyms.md` lists as universally recognized (USB, FAQ, URL, LED, RAM, CPU, API) and for dictionary acronyms (acronyms.md:38). It does not exempt GPIO, UART, SPI, and similar terms, because `acronyms.md` says to spell them out on first use on each page.
 
 These rules are disabled (`.yml_ignored`) until the style guide resolves a conflict between its pages:
 
@@ -162,8 +191,8 @@ These rules are disabled (`.yml_ignored`) until the style guide resolves a confl
 
 | Check | Implementations |
 |:---|:---|
-| `existence` | `Accessibility.yml`, `Adverbs.yml`, `Avoid.yml`, `Dashes.yml`, `DateFormat.yml`, `DateNumbers.yml`, `DateOrder.yml`, `Ellipses.yml`, `FirstPerson.yml`, `Gender.yml`, `GeneralURL.yml`, `HeadingAcronyms.yml`, `HeadingColons.yml`, `HeadingPunctuation.yml`, `Hyphens.yml`, `Negative.yml`, `Ordinal.yml`, `OxfordComma.yml`, `Passive.yml`, `Percentages.yml`, `Plurals.yml`, `Quotes.yml`, `RangeTime.yml`, `Semicolon.yml`, `Spacing.yml`, `Suspended.yml`, `Vocab.yml`, `We.yml` |
-| `substitution` | `Contractions.yml`, `Foreign.yml`, `GenderBias.yml`, `Glossary.yml`, `GlossaryPreferred.yml`, `OtherSubstitutions.yml`, `Terms.yml`, `URLFormat.yml`, `Wordiness.yml` |
+| `existence` | `Accessibility.yml`, `AdmonitionType.yml`, `Adverbs.yml`, `AltText.yml`, `Apostrophes.yml`, `Avoid.yml`, `CodeFormatting.yml`, `ColonMisuse.yml`, `CommaThen.yml`, `CompoundNumbers.yml`, `Condescending.yml`, `ContractionsAvoid.yml`, `Dashes.yml`, `DateFormat.yml`, `DateNumbers.yml`, `DateOrder.yml`, `Ellipses.yml`, `Exclamation.yml`, `FirstPerson.yml`, `FromRange.yml`, `Gender.yml`, `GeneralURL.yml`, `HeadingAcronyms.yml`, `HeadingCodeOnly.yml`, `HeadingColons.yml`, `HeadingDepth.yml`, `HeadingPeriod.yml`, `HeadingPunctuation.yml`, `Hyphens.yml`, `LeadingZero.yml`, `LinkText.yml`, `MonthYearComma.yml`, `Negative.yml`, `NonEnglish.yml`, `NumberWithUnit.yml`, `Ordinal.yml`, `OxfordComma.yml`, `Passive.yml`, `Percentages.yml`, `Plurals.yml`, `PrintReferences.yml`, `PriorReading.yml`, `Quotes.yml`, `RangeTime.yml`, `Semicolon.yml`, `Slang.yml`, `Spacing.yml`, `Suspended.yml`, `TableNotes.yml`, `TrademarkSymbols.yml`, `Vocab.yml`, `We.yml` |
+| `substitution` | `AmericanSpelling.yml`, `Contractions.yml`, `CulturallySensitive.yml`, `Foreign.yml`, `GenderBias.yml`, `Glossary.yml`, `GlossaryPreferred.yml`, `HeadingVersus.yml`, `HexPrefix.yml`, `Idioms.yml`, `InformalAbbreviations.yml`, `OtherSubstitutions.yml`, `Shall.yml`, `Terms.yml`, `URLFormat.yml`, `Wordiness.yml` |
 | `capitalization` | `Headings.yml` |
 | `conditional` | `Acronyms.yml` |
 | `occurrence` | `SentenceLength.yml` |
@@ -178,3 +207,35 @@ bundle install
 bundle exec cucumber --format progress
 yamllint Nordic
 ```
+
+The rst fixtures need `rst2html` on the `PATH` before cucumber runs. Without it, Vale produces no output for `.rst` files and the scenarios fail.
+
+Each fixture has its own `.vale.ini` that enables only its rule. Its `[*.md]` and `[*.rst]` sections must match those of the root `.vale.ini`.
+
+## Keeping the style up to date with the guide
+
+`scripts/check-sources.py` checks every rule against a checkout of the [style guide source](https://github.com/NordicPlayground/techdocs-style-guide). It fails in these cases:
+
+- the anchor of a rule's `link:` no longer exists on the guide page, or the page no longer exists.
+- the quote in a `# Source: <page>.md:<line>, "<quote>"` comment is no longer near the cited line.
+
+```bash
+git clone https://github.com/NordicPlayground/techdocs-style-guide ../techdocs-style-guide
+python3 scripts/check-sources.py --guide ../techdocs-style-guide
+```
+
+Run it when the guide publishes a new release. Add `--write-coverage` to regenerate `coverage/nordic-guide.yml` from the `link:` and `# Source:` lines of the rules. CI runs the check on every push, against the guide release set as `ref` in `.github/workflows/main.yml` (currently v1.0.2). Update that `ref` when you update the rules for a new release.
+
+### Spelling vocabulary
+
+`scripts/gen-vocab.py` writes `config/vocabularies/Nordic/accept.txt` from the term columns of `glossary.md` and `product-names.md`. It keeps only the words that Vale's default dictionary does not know, and leaves out any word that a Nordic rule prohibits, such as `BLE`. CI runs it with `--check` and fails if the file is out of date.
+
+```bash
+python3 scripts/gen-vocab.py --guide ../techdocs-style-guide
+```
+
+The spelling rule (`Nordic/Spelling.yml_ignored`) stays disabled. Even with this vocabulary, it gives 3,126 suggestions on the nRF Connect SDK documentation (`nrf/doc/nrf`, v3.1.0), mostly for product and project names the glossary does not list (Zigbee, Gazell, Memfault, zcbor) and for plural acronyms (LEDs, ICs). To use the vocabulary in your own project, copy `config/vocabularies/Nordic/` into your `StylesPath` and add `Vocab = Nordic` to your `.vale.ini`.
+
+## Versions
+
+See [CHANGELOG.md](CHANGELOG.md). Version 2.0.0 is the first release based on the Nordic TechDocs Style Guide. It is not compatible with the 1.x releases, which implemented the Microsoft Writing Style Guide.

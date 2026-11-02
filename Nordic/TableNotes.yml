@@ -1,0 +1,10 @@
+extends: existence
+# Source: content-structure/tables.md:26, "Do not place note text inside table cells. Move the information into body text or use a footnote".
+# content-structure/notes-cautions-tips.md:225, "Notes do not belong inside table cells; use footnotes instead."
+message: "Do not put note text in a table cell. Use a footnote or move the note to the body text."
+link: https://nordicplayground.github.io/techdocs-style-guide/content-structure/tables/#content
+level: warning
+scope: table.cell
+nonword: true
+tokens:
+  - '^(?:Note|NOTE|Important|IMPORTANT|Caution|CAUTION|Warning|WARNING|Tip)s?\s*:'

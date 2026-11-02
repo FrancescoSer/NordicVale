@@ -15,4 +15,6 @@ Configure the device tree to add the sensor.
 
 Set the ``simply`` option and the ```just``` variable.
 
+The build actually works, and it is basically done.
+
 See :ref:`simply_configure` for more information.

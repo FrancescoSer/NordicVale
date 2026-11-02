@@ -29,3 +29,5 @@ Use the NRF52840 or Nrf52840 or nrf52840. Build for nrf52840dk/nrf52840. Use NRF
 The Nordic thingy:91 and NORDIC THINGY:91. Order two nRF52840 DKs. Use the baremetal or bare-metal option.
 
 Do not flag `BLE`, `NCS`, or `id` in code.
+
+This is known issue NCSDK-34745.

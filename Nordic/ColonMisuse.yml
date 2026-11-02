@@ -1,0 +1,15 @@
+extends: existence
+# Source: punctuation/colons.md:24-28 and :34-75, "Do not use a colon ... To introduce a figure or a table", "When referring to screen elements in text",
+# "In a list that is introduced by includes or are within a sentence".
+message: "Do not use a colon in '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/colons/#do-not-use-a-colon
+level: warning
+nonword: true
+tokens:
+  # To introduce a figure or table: "Figure 3-2: shows", "see the following diagram: Figure 3".
+  - '\b(?:Figure|Table)\s+\d+(?:[–.-]\d+)?:\s+(?:shows|lists|describes|illustrates|displays|contains|summarizes|presents|demonstrates|gives|provides)\b'
+  - '\b(?:following|in|see)(?:\s+\w+)?:\s+(?:Figure|Table)\s+\d'
+  # A list in a sentence after "are", "include", or "such as": "The colors are: cyan, magenta".
+  - '\b(?:are|is|include|includes|such as):\s+[\w-]+(?:\s+[\w-]+)?,'
+  # A UI label with the colon copied from the screen: "the Voltage: field".
+  - '\b[A-Z]\w*:\s+(?:field|box|menu|option|list|button|tab|check box|checkbox|dialog box|pane|window)\b'

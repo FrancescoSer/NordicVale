@@ -16,10 +16,13 @@ tokens:
   - abnormally
   - absentmindedly
   - accidentally
+  # Source: writing-tips/scannable-writing.md:156, Filler words ("actually", "basically", "really", "very").
+  - actually
   - adventurously
   - anxiously
   - arrogantly
   - awkwardly
+  - basically
   - bashfully
   - beautifully
   - bitterly

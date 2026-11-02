@@ -1,0 +1,15 @@
+extends: existence
+# Source: punctuation/apostrophes.md:24-31, "Do not use an apostrophe ... With a possessive pronoun (your's) ... Multi-letter abbreviations without periods (GPIO's) ... Complete decades (2010's)".
+# acronyms.md:74-87, "Do not use an apostrophe to form the plural" (SDK's, DK's, GPIO's).
+# An acronym with 's is also a valid possessive (punctuation/apostrophes.md:15, "the API's response"), so only a plural after a plural marker is flagged.
+message: "Do not use an apostrophe in '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/punctuation/apostrophes/#do-not-use-an-apostrophe
+level: error
+nonword: true
+tokens:
+  # Complete decades: 2010's.
+  - '\b\d{4}[''’]s\b'
+  # Possessive pronouns: your's, their's, our's, her's.
+  - '\b(?i:your|their|our|her)[''’]s\b'
+  # Plurals of acronyms after a word that marks a plural: several GPIO's.
+  - '(?i:\b(?:several|multiple|many|two|three|four|five|six|seven|eight|nine|ten|all|some|few|these|those|both|the following|\d+))\s+[A-Z][A-Z0-9]*[A-Z][''’]s\b'

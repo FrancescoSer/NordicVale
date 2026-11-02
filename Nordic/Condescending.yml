@@ -1,0 +1,23 @@
+extends: existence
+# Source: writing-tips/bias-free-communication.md:77-185, "Avoid condescending tone" (the Avoid lists and the "Condescending" table).
+# simply, just, easy, and obviously are in Nordic.Adverbs.
+message: "Do not use condescending language such as '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/bias-free-communication/#avoid-condescending-tone
+level: warning
+ignorecase: true
+tokens:
+  - of course
+  - as you (?:probably |may |might |already )?know
+  - (?:you )?(?:probably )?already know
+  - anyone can
+  - even (?:a beginner|beginners|a novice|non-programmers|a child)
+  - it goes without saying
+  - needless to say
+  - super easy
+  - worth (?:their|his|her|your) salt
+  - beginner stuff
+  - do not worry
+  - don['’]t worry
+  - should not have any trouble
+  - makes it easy
+  - we have simplified

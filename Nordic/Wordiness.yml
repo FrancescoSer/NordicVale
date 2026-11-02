@@ -90,10 +90,25 @@ swap:
   print out: print
   test out: test
   # --- redundancies.md, "Redundant categories" (lines 114-120) ---
-  # "in color", "in size", and "in shape" are left out: they are too ambiguous for a regex
-  # ("a change in size").
+  # "in color", "in size", and "in shape" only after a color, a size with a unit, or a shape
+  # adjective: the bare phrases are ambiguous ("a change in size").
+  '(black|blue|brown|gray|green|orange|pink|purple|red|white|yellow) in color': $1
+  '(\d+(?:\.\d+)? ?(?:[kKMGT]i?B|bytes?)) in size': $1
+  '(circular|oval|rectangular|round|square|triangular) in shape': $1
   during the month of: during
   in the field of: in
+  # --- redundancies.md:46, "in the process of | (omit, rephrase)" ---
+  in the process of: (omit the phrase)
+  # --- redundancies.md:142, "serves as a means of | (rephrase with a verb)" ---
+  serves as a means of: (a verb)
+  # --- redundancies.md, "Tighten common constructions" (lines 147-153) ---
+  it is possible to: you can
+  it should be noted that: (omit the phrase)
+  # Source: writing-tips/scannable-writing.md:154, Safe to cut: "It is important to mention...".
+  it is important to (?:mention|note) that: (omit the phrase)
+  it is recommended that you: (an imperative verb)
+  # "the fact that" after due to, despite, in spite of, because of, or based on is covered by the longer entries.
+  '(?<!(?:due to|despite|in spite of|because of|based on|matter of) )the fact that': (a noun phrase)
   # --- redundancies.md, "Replace phrases with single words" (lines 128-143) ---
   a (?:large )?number of: many
   at this point in time: now
@@ -215,5 +230,6 @@ swap:
   time (?:frame|period): time
   under the provisions of: under
   used for fuel purposes: used for fuel
-  with regard to: regarding
+  # Source: writing-tips/jargon.md:93, "regarding | about".
+  with regard to: about
   with the exception of: except for

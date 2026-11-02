@@ -11,6 +11,8 @@ Feature: Accessibility
             test.md:11:18:Nordic.Accessibility:Do not use language (such as 'hearing-impaired') that defines people by their disability.
             test.md:11:39:Nordic.Accessibility:Do not use language (such as 'visually impaired') that defines people by their disability.
             test.md:13:27:Nordic.Accessibility:Do not use language (such as 'mute person') that defines people by their disability.
+            test.md:15:24:Nordic.Accessibility:Do not use language (such as 'able-bodied') that defines people by their disability.
+            test.md:15:40:Nordic.Accessibility:Do not use language (such as 'non-disabled users') that defines people by their disability.
             test.rst:4:10:Nordic.Accessibility:Do not use language (such as 'suffers from') that defines people by their disability.
             test.rst:6:9:Nordic.Accessibility:Do not use language (such as 'suffering from') that defines people by their disability.
             test.rst:8:32:Nordic.Accessibility:Do not use language (such as 'disabled people') that defines people by their disability.
@@ -18,4 +20,6 @@ Feature: Accessibility
             test.rst:12:18:Nordic.Accessibility:Do not use language (such as 'hearing-impaired') that defines people by their disability.
             test.rst:12:39:Nordic.Accessibility:Do not use language (such as 'visually impaired') that defines people by their disability.
             test.rst:14:27:Nordic.Accessibility:Do not use language (such as 'mute person') that defines people by their disability.
+            test.rst:16:24:Nordic.Accessibility:Do not use language (such as 'able-bodied') that defines people by their disability.
+            test.rst:16:40:Nordic.Accessibility:Do not use language (such as 'non-disabled users') that defines people by their disability.
             """

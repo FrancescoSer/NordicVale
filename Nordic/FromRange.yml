@@ -1,0 +1,9 @@
+extends: existence
+# Source: numbers.md:140, "Exception: Do not use from before a range indicated by an en dash."
+message: "Do not use 'from' or 'between' before a range with an en dash ('%s'). Use 'from ... to', or the dash alone."
+link: https://nordicplayground.github.io/techdocs-style-guide/numbers/#ranges-of-numbers
+level: error
+ignorecase: true
+nonword: true
+tokens:
+  - '\b(?:from|between)\s+[-–+]?\d+(?:[.,]\d+)?\s?[–-]\s?[-–+]?\d+'

@@ -1,0 +1,8 @@
+extends: existence
+# Source: numbers.md:97, "Add a leading zero before decimal points for values under one." (0.5 cm)
+message: "Add a leading zero before the decimal point in '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/numbers/#positioning-fractional-components
+level: error
+nonword: true
+tokens:
+  - '(?<=^|[\s(])\.\d+\b'

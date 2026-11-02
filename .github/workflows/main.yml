@@ -63,3 +63,35 @@ jobs:
         run: |
           vale ls-config > /dev/null
           vale --minAlertLevel=error README.md
+
+  sources:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Checkout the style guide
+        uses: actions/checkout@v3
+        with:
+          repository: NordicPlayground/techdocs-style-guide
+          # The guide release the rules are synced with. Bump it when you sync
+          # the rules with a new release.
+          ref: v1.0.2
+          path: techdocs-style-guide
+
+      - name: Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      # Fails if a link anchor or a Source quote no longer matches the guide.
+      - name: Check links and sources
+        run: python3 scripts/check-sources.py --guide techdocs-style-guide
+
+      - name: Install Vale
+        run: pip install "vale>=3.25.1"
+
+      # Fails if config/vocabularies/Nordic/accept.txt no longer matches the
+      # glossary and product names of the guide release.
+      - name: Check the spelling vocabulary
+        run: python3 scripts/gen-vocab.py --guide techdocs-style-guide --check

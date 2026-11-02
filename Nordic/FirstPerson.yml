@@ -11,5 +11,6 @@ tokens:
   - (?<=^|\s)I(?=\s|,\s)
   - \bI['’](?:d|ll|m|ve)\b
   - \b[Mm]e\b
-  - \b[Mm]y\b
+  # Not in product names such as Find My Device and Find My.
+  - (?<!\bFind )\b[Mm]y\b
   - \b[Mm]ine\b

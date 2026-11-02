@@ -1,0 +1,13 @@
+extends: existence
+# Source: content-structure/links.md:167, "Link text should tell readers where the link leads" (Avoid: "Click [here](#)", "See [this page](#)", "[Read more](#)").
+# content-structure/cross-references.md:40, Avoid: "See [this page](#)." writing-tips/accessibility.md:263-270, "Write descriptive link text".
+# Markdown and rst link syntax differ, so the rule reads the raw source with one token for each.
+message: "Use link text that describes the destination, not '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/content-structure/links/#provide-context-in-link-text
+level: warning
+ignorecase: true
+scope: raw
+nonword: true
+tokens:
+  - '\[(?:click here|here|this|this (?:page|link|topic|article|section|document|guide)|link|read more|learn more|more|more information|see details|details|available)\](?=[(\[])'
+  - '`(?:click here|here|this|this (?:page|link|topic|article|section|document|guide)|link|read more|learn more|more|more information|see details|details|available)\s*<[^>`]+>`__?'

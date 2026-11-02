@@ -11,6 +11,8 @@ level: warning
 ignorecase: true
 tokens:
   - a victim of
+  # MSWSG accessibility terms: "Person without a disability", not "Non-disabled person, able-bodied person".
+  - able[- ]bodied
   - an epileptic
   - asperger['’]s
   - birth defect
@@ -29,6 +31,7 @@ tokens:
   - mentally handicapped
   - missing a limb
   # Bare "mute" is a UI term ("the Mute button" in typographic-conventions.md), so match only forms about people.
+  - non-disabled (?:people|persons?|users?|customers?|readers?|individuals?)
   - mute (?:person|people|individuals?)
   - non-verbal
   - normal person

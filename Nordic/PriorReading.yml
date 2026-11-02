@@ -1,0 +1,13 @@
+extends: existence
+# Source: writing-tips/online-context.md:27-34, "Do not use phrases that assume the reader has been following along" ("As we discussed earlier...", "Now that you have completed the setup...").
+# content-structure/cross-references.md:169, Avoid: "The previous page discussed..."
+message: "Do not assume that the reader has read other content ('%s'). Link to the topic instead."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/online-context/#avoid-assuming-prior-reading
+level: warning
+ignorecase: true
+tokens:
+  - 'as (?:we|I) (?:discussed|mentioned|saw|explained|described)(?: (?:earlier|before|previously|above))?'
+  - 'continuing from the previous (?:section|page|chapter|topic)'
+  - 'now that you have'
+  - 'the previous (?:page|chapter|topic) (?:discussed|described|explained|covered|showed)'
+  - 'remember the \w+(?: \w+)? from'

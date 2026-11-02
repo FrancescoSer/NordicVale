@@ -12,6 +12,8 @@ The app supports hearing-impaired and visually impaired users.
 
 Do not label someone as a mute person.
 
+The test team included able-bodied and non-disabled users.
+
 Readers who are blind or have low vision use screen readers.
 
 The CMSE disabled build runs in the secure processing environment.

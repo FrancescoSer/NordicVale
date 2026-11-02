@@ -1,0 +1,16 @@
+extends: existence
+# Source: writing-tips/internationalization.md:42-51, "Avoid slang and informal language" ("kinda", "cool", "awesome", "nifty", "stuff", "a bunch of").
+# writing-tips/bias-free-communication.md:166, Condescending: "(this is super easy!)". gonna and wanna are in Nordic.ContractionsAvoid.
+message: "Do not use slang or informal language such as '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/internationalization/#avoid-slang-and-informal-language
+level: warning
+ignorecase: true
+tokens:
+  - kinda
+  - sorta
+  - '(?<!\w-)cool(?!-| (?:down|off)\b|ing|ed|er\b|ant)'
+  - awesome
+  - nifty
+  - stuff
+  - a bunch of
+  - super (?:easy|simple|fast|quick|useful)

@@ -13,8 +13,8 @@ action:
   name: edit
   params:
     - trim_right
-    - ".?!:;,"
+    - "?!:;,"
 tokens:
   # End punctuation after a letter, a digit, or a closing parenthesis or
   # quotation mark. An ellipsis (...) is left to Nordic.Ellipses.
-  - '(?<=[\w)"”’`])(?<!\.\.)[.?!:;,]$'
+  - '(?<=[\w)"”’`])(?<!\.\.)[?!:;,]$'

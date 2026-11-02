@@ -1,0 +1,14 @@
+extends: existence
+# Source: numbers.md:73, "Hyphenate compound numbers when they are spelled out." (twenty-five fonts)
+message: "Hyphenate the spelled-out compound number '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/numbers/#compound-numbers
+level: error
+ignorecase: true
+action:
+  name: edit
+  params:
+    - regex
+    - ' '
+    - '-'
+tokens:
+  - '(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety) (?:one|two|three|four|five|six|seven|eight|nine|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth)'

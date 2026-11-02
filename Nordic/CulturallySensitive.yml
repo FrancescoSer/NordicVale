@@ -1,0 +1,15 @@
+extends: substitution
+# Source: writing-tips/bias-free-communication.md:62-68, "Avoid culturally sensitive terms" (master/slave, demilitarized zone (DMZ), hang).
+# Bare "slave" is not flagged: glossary.md:587 lists "slave (n. common) ... SPI slave, slave mode" as a valid term.
+message: "Use '%s' instead of '%s'."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/bias-free-communication/#avoid-culturally-sensitive-terms
+level: warning
+ignorecase: true
+action:
+  name: replace
+swap:
+  'master/slave': master/subordinate
+  'demilitarized zone|DMZ': perimeter network
+  'hangs': stops responding
+  '(?<!low-)hanging': not responding
+  '(?<=\b(?:may|might|can|could|will|to|not|application|app|program|system|device|it) )hang(?! up| on| off| out)': stop responding

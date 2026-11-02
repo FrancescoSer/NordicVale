@@ -1,0 +1,19 @@
+extends: substitution
+# Source: writing-tips/internationalization.md:16-31, "Avoid idioms and colloquialisms" (the list and its replacements).
+# "Out of the box" is not included: glossary.md:531 defines "out of the box" as an accepted term.
+message: "Avoid the idiom '%[2]s'. Use %[1]s."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/internationalization/#avoid-idioms-and-colloquialisms
+level: warning
+ignorecase: true
+action:
+  name: replace
+swap:
+  'up and running': operational|running
+  'boils? down to': reduces to|essentially means
+  'at the end of the day': ultimately
+  'hit the ground running': start immediately|begin productively
+  'low-hanging fruit': easily achievable improvements
+  'under the hood': internally|in the implementation
+  'gotchas?': common pitfall|known issue
+  'rules? of thumb': general guideline
+  'heads[- ]up': note|important

@@ -24,6 +24,18 @@ Feature: Wordiness
             test.md:15:1:Nordic.Wordiness:Consider using 'eliminate' instead of 'Completely eliminate'.
             test.md:15:37:Nordic.Wordiness:Consider using 'consider' instead of 'Take into consideration'.
             test.md:19:13:Nordic.Wordiness:Consider using 'between' instead of 'in between'.
+            test.md:21:14:Nordic.Wordiness:Consider using '(omit the phrase)' instead of 'in the process of'.
+            test.md:21:52:Nordic.Wordiness:Consider using 'green' instead of 'green in color'.
+            test.md:21:83:Nordic.Wordiness:Consider using '10 MB' instead of '10 MB in size'.
+            test.md:23:13:Nordic.Wordiness:Consider using 'rectangular' instead of 'rectangular in shape'.
+            test.md:25:1:Nordic.Wordiness:Consider using '(omit the phrase)' instead of 'It should be noted that'.
+            test.md:25:41:Nordic.Wordiness:Consider using '(omit the phrase)' instead of 'It is important to note that'.
+            test.md:27:1:Nordic.Wordiness:Consider using 'you can' instead of 'It is possible to'.
+            test.md:27:38:Nordic.Wordiness:Consider using '(an imperative verb)' instead of 'It is recommended that you'.
+            test.md:29:9:Nordic.Wordiness:Consider using '(a verb)' instead of 'serves as a means of'.
+            test.md:29:37:Nordic.Wordiness:Consider using '(a noun phrase)' instead of 'The fact that'.
+            test.md:31:1:Nordic.Wordiness:Consider using 'although' instead of 'Despite the fact that'.
+            test.md:31:56:Nordic.Wordiness:Consider using 'about' instead of 'With regard to'.
             test.rst:4:15:Nordic.Wordiness:Consider using 'to' instead of 'in order to'.
             test.rst:4:50:Nordic.Wordiness:Consider using 'to' instead of 'In order to'.
             test.rst:6:1:Nordic.Wordiness:Consider using 'because' instead of 'Due to the fact that'.
@@ -44,4 +56,16 @@ Feature: Wordiness
             test.rst:16:1:Nordic.Wordiness:Consider using 'eliminate' instead of 'Completely eliminate'.
             test.rst:16:37:Nordic.Wordiness:Consider using 'consider' instead of 'Take into consideration'.
             test.rst:20:13:Nordic.Wordiness:Consider using 'between' instead of 'in between'.
+            test.rst:22:14:Nordic.Wordiness:Consider using '(omit the phrase)' instead of 'in the process of'.
+            test.rst:22:52:Nordic.Wordiness:Consider using 'green' instead of 'green in color'.
+            test.rst:22:83:Nordic.Wordiness:Consider using '10 MB' instead of '10 MB in size'.
+            test.rst:24:13:Nordic.Wordiness:Consider using 'rectangular' instead of 'rectangular in shape'.
+            test.rst:26:1:Nordic.Wordiness:Consider using '(omit the phrase)' instead of 'It should be noted that'.
+            test.rst:26:41:Nordic.Wordiness:Consider using '(omit the phrase)' instead of 'It is important to note that'.
+            test.rst:28:1:Nordic.Wordiness:Consider using 'you can' instead of 'It is possible to'.
+            test.rst:28:38:Nordic.Wordiness:Consider using '(an imperative verb)' instead of 'It is recommended that you'.
+            test.rst:30:9:Nordic.Wordiness:Consider using '(a verb)' instead of 'serves as a means of'.
+            test.rst:30:37:Nordic.Wordiness:Consider using '(a noun phrase)' instead of 'The fact that'.
+            test.rst:32:1:Nordic.Wordiness:Consider using 'although' instead of 'Despite the fact that'.
+            test.rst:32:56:Nordic.Wordiness:Consider using 'about' instead of 'With regard to'.
             """

@@ -34,3 +34,7 @@ Do not flag ``BLE``, ``NCS``, or ``id`` in code.
 Do not flag :ref:`BLE` or :c:func:`id` in a role.
 
 See the `guide document <Golioth Firmware SDK NCS doc_>`_ for details.
+
+This is known issue NCSDK-34745.
+
+Roles that the nRF Connect SDK documentation uses: :ref:`NCS SPM` :kconfig:option:`NCS SPM` :github:`NCS SPM` :file:`NCS SPM` :c:func:`NCS SPM` :c:macro:`NCS SPM` :sup:`NCS SPM` :dtcompatible:`NCS SPM` :zephyr:code-sample:`NCS SPM` :c:struct:`NCS SPM` :guilabel:`NCS SPM` :zephyr:board:`NCS SPM` :c:member:`NCS SPM` :abbr:`NCS SPM` :c:enumerator:`NCS SPM` :term:`NCS SPM` :code:`NCS SPM` :c:enum:`NCS SPM` :doc:`NCS SPM` :makevar:`NCS SPM` :c:type:`NCS SPM` :kbd:`NCS SPM` :c:var:`NCS SPM` :zephyr:code-sample-category:`NCS SPM` :math:`NCS SPM` :ncs-tool-version:`NCS SPM` :envvar:`NCS SPM` :cve:`NCS SPM` :command:`NCS SPM` :menuselection:`NCS SPM` :dfn:`NCS SPM` :sub:`NCS SPM` :cpp:func:`NCS SPM` :samp:`NCS SPM` :rst:dir:`NCS SPM` :rst:role:`NCS SPM` :option:`NCS SPM` :cpp:type:`NCS SPM` :c:data:`NCS SPM` :c:union:`NCS SPM`.

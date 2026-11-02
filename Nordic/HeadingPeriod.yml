@@ -1,0 +1,18 @@
+extends: existence
+# Source: content-structure/headings.md:99, "Period - Do not end headings with a period."
+# punctuation/periods.md:24, "Do not use a period ... In headlines, headings, subheadings".
+# Split from Nordic.HeadingPunctuation, which keeps ? ! : ; , as a warning. Remove "." from that rule.
+message: "Do not end a heading with a period."
+link: https://nordicplayground.github.io/techdocs-style-guide/content-structure/headings/#avoid-most-punctuation
+level: error
+scope: heading
+nonword: true
+action:
+  name: edit
+  params:
+    - trim_right
+    - "."
+tokens:
+  # A period after a letter, digit, or closing bracket or quotation mark. Skip an
+  # ellipsis and abbreviations that end in a period (etc., vs., Inc.).
+  - '(?<=[\w)"”’`])(?<!\.\.)(?<!\b(?:etc|vs|Inc|Ltd|Co|e\.g|i\.e))\.$'

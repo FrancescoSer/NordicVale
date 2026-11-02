@@ -1,0 +1,10 @@
+extends: substitution
+# Source: writing-tips/jargon.md:95 and :101-108, "Avoid shall and should in technical documentation." (shall: must for requirements, will for future)
+message: "Use '%s' instead of '%s'. Use 'must' for a requirement and 'will' for future behavior."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/jargon/#shall-and-should
+level: warning
+ignorecase: true
+action:
+  name: replace
+swap:
+  shall: must|will

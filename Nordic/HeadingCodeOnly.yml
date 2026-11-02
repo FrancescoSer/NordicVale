@@ -1,0 +1,11 @@
+extends: existence
+# Source: content-structure/headings.md:45-55, "Include descriptive nouns when headings reference commands, files, or code elements" (`nrfutil` -> The `nrfutil` command).
+# Vale removes inline code from the heading scope, so this rule reads the raw source.
+message: "Add a descriptive noun to a heading that contains only code, for example 'The `nrfutil` command'."
+link: https://nordicplayground.github.io/techdocs-style-guide/content-structure/headings/#provide-context-for-technical-elements
+level: warning
+scope: raw
+nonword: true
+tokens:
+  - '(?m)^#{1,6}[ \t]+`[^`\n]+`[ \t]*$'
+  - '(?m)^``[^`\n]+``[ \t]*\n[=\-~^"''*+#`:.]{3,}[ \t]*$'

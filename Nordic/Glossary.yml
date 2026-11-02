@@ -65,7 +65,8 @@ swap:
   # glossary.md:661, "Wi-Fi Alliance ... abbreviating is prohibited."
   WFA: Wi-Fi Alliance
   # acronyms.md:30, :199, product-names.md:98, "Do not abbreviate 'nRF Connect SDK' as 'NCS' or 'NCSDK'".
-  'NCS|NCSDK': nRF Connect SDK
+  # NCSDK-12345 is a Jira issue key, not an abbreviation.
+  'NCS|NCSDK(?!-\d)': nRF Connect SDK
   # acronyms.md:31, :32, "Do not abbreviate 'Secure Partition Manager' as 'SPM'", "... as 'NSPM'".
   SPM: Secure Partition Manager
   NSPM: Nordic Secure Partition Manager

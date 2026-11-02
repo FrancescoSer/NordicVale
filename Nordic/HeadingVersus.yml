@@ -1,0 +1,14 @@
+extends: substitution
+# Source: content-structure/headings.md:104, "Use vs., not v. or versus, in headings."
+# Nordic.Foreign swaps vs. to versus everywhere. Give Nordic.Foreign "scope: ~heading" so that the two rules agree.
+message: "Use 'vs.' instead of '%[2]s' in headings."
+link: https://nordicplayground.github.io/techdocs-style-guide/content-structure/headings/#avoid-most-punctuation
+level: warning
+scope: heading
+ignorecase: true
+nonword: true
+action:
+  name: replace
+swap:
+  '\b(?:versus|v\.)(?=\s)': vs.
+  '\b(?-i:vs)(?=\s)': vs.

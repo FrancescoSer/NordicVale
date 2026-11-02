@@ -11,6 +11,9 @@ Smith et al. describe the method.
 
 Compare Thread vs. Zigbee and Thread vs Bluetooth LE.
 
+Thread vs. Zigbee
+*****************
+
 Install nRF Connect for VS Code.
 
 The ie option is set.

@@ -13,3 +13,5 @@ Increment i in the loop and use the i2c bus.
 Set the `my_value` and `me` variables.
 
 Use the I2C peripheral and the IPC service.
+
+The device supports the Find My Device Network.

@@ -9,6 +9,8 @@ link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/jargo
 ignorecase: true
 level: error
 nonword: true
+# Headings use vs. (content-structure/headings.md:104), which Nordic.HeadingVersus checks.
+scope: ~heading
 action:
   name: replace
 swap:

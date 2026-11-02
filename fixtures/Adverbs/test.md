@@ -12,4 +12,6 @@ The scheduler uses just-in-time compilation.
 
 Configure the device tree to add the sensor.
 
+The build actually works, and it is basically done.
+
 Set the `simply` option and the ``just`` variable.

@@ -1,0 +1,25 @@
+extends: existence
+# Source: writing-tips/index.md:99-107 and grammar/index.md:75-81, "Use contractions carefully":
+# "Never use a contraction when you want to emphasize the negative" (Incorrect: Don't press the Escape key),
+# "Avoid obscure contractions ... mustn't, mightn't, you'd best, shan't, and ain't",
+# "Avoid adding 's for is or has in forms such as that's", "Do not use it's as an abbreviation of it is",
+# "Steer clear of overly casual forms like gonna, wanna, gotta, or archaic forms like 'twas and 'tis".
+# The common contractions that the guide accepts stay in Nordic.Contractions (suggestion). Remove the forms above from that rule.
+message: "Do not use the contraction '%s'. Write the words in full."
+link: https://nordicplayground.github.io/techdocs-style-guide/writing-tips/#use-contractions-carefully
+level: warning
+ignorecase: true
+nonword: true
+tokens:
+  # "Do not use it's as an abbreviation of it is."
+  - '\bit[''’]s\b'
+  # "Avoid adding 's for is or has in forms such as that's."
+  - '\b(?:that|here|there|what|where|who|how|when|why|this|everything|nothing|something)[''’]s\b'
+  # "Avoid obscure contractions ... mustn't, mightn't, you'd best, shan't, and ain't."
+  - '\b(?:mustn|mightn|shan|ain|needn|oughtn)[''’]t\b'
+  - '\byou[''’]d best\b'
+  # "Steer clear of overly casual forms like gonna, wanna, gotta, or archaic forms like 'twas and 'tis."
+  - '\b(?:gonna|wanna|gotta|kinda|sorta)\b'
+  - '(?<!\w)[''’]t(?:was|is)\b'
+  # "Never use a contraction when you want to emphasize the negative" (Don't press the Escape key).
+  - '\b(?-i:Don)[''’]t\b'

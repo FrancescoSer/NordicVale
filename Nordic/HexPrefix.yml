@@ -1,0 +1,11 @@
+extends: substitution
+# Source: capitalization.md:150-154, "Keep "x" lowercase in hexadecimal addresses" (0x4000) and "Maintain lowercase "x" in architecture designations" (x86, x64).
+message: "Use '%s' instead of '%s'. Keep the 'x' lowercase."
+link: https://nordicplayground.github.io/techdocs-style-guide/capitalization/#technical-notation
+level: error
+ignorecase: false
+action:
+  name: replace
+swap:
+  '0X([0-9A-Fa-f]+)': 0x$1
+  'X(86|64)': x$1
